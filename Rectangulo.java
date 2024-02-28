@@ -10,18 +10,23 @@ public class Rectangulo {
         this.altura = altura;
     }
     //Métodos para calcular área y perímetro
-    public int calcularPerimetro(int perimetro){
-        int h = (int)altura, base1 = (int)base;
+    public int calcularPerimetro(int h, int base1){
+        h = (int)altura;
+        base1 = (int)base;
+        int perimetro;
         return perimetro = (2*base1) + (2*h);
     }
-    public double calcularPerimetro(double perimetro){
+    public double calcularPerimetro(double h, double altura){
+        double perimetro;
         return perimetro = (2*base) + (2*altura);
     }
-    public int calcularArea(int area){
+    public int calcularArea(int altura, int base){
         int h = (int)altura, base1 = (int)base;
+        int area;
         return area = h*base1;
     }
-    public double calcularArea(double area){
+    public double calcularArea(double base, double altura){
+        double area;
         return area = base*altura;
     }
 }
