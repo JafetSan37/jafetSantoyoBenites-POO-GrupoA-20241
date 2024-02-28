@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args){
         Scanner leer = new Scanner(System.in);
-        /*//Ejercicio Rectángulo
+        //Ejercicio Rectángulo
         double base, altura;
         //Objetos de la clase Rectángulo
         System.out.print("Hola! Ingresa la base del rectángulo: ");
@@ -12,12 +12,13 @@ public class Main {
         Rectangulo rectangulo1 = new Rectangulo(base, altura);
         //Cálculo de áreas y perímetros e impresión de resultados
         System.out.printf("\nEl perímetro del rectángulo es: %.2f", rectangulo1.calcularPerimetro(base, altura));
-        System.out.printf("\nEl área del rectángulo es: %.2f", rectangulo1.calcularArea(base, altura));
-        System.out.println("************");*/
+        System.out.printf("\nEl área del rectángulo es: %.2f\n", rectangulo1.calcularArea(base, altura));
+        System.out.println("\n************");
+
         //Ejercicio Empleado
         double sueldoBase, bonificacion, horasExtras;
         //Se solicitan los datos al usuario, y se ejecutan los métodos dependiendo de los datos recibidos
-        System.out.println("Ingresa tu sueldo: ");
+        System.out.println("\nIngresa tu sueldo: ");
         sueldoBase = leer.nextDouble();
         System.out.println("¿Tienes bonificación? S/N: ");
         char respuesta = leer.next().charAt(0);
@@ -37,14 +38,19 @@ public class Main {
             }
         }else{
             Empleado empleado = new Empleado(sueldoBase,0,0);
-            System.out.printf("\nTu suelto total es: %.2f",empleado.salarioTotal(sueldoBase));
+            System.out.printf("\nTu suelto total es: %.2f\n",empleado.salarioTotal(sueldoBase));
         }
-        System.out.println("***************");
+        System.out.println("\n***************");
+
         //Ejercicio Calculadora de Impuestos
-        CalculadoraImpuestos calculo1 = new CalculadoraImpuestos(124500);
-        CalculadoraImpuestos calculo2 = new CalculadoraImpuestos(45.78, 231678.89);
-        CalculadoraImpuestos calculo3 = new CalculadoraImpuestos(34.18, 4.25, 6.8);
-        int calculoEntero = 124500;
-        
+        //Creación del objeto
+        CalculadoraImpuestos calculo1 = new CalculadoraImpuestos(456789, 34.89, 4.51, 3.21, 428745.89);
+        //Cálculo con diferentes parámetros usando los atributos del objeto e impresión de resultados
+        System.out.println("\nCálculo ingresos:");
+        System.out.println(calculo1.calculadoraImp(calculo1.ingresos));
+        System.out.println("Cálculo ventas y porcentaje de impuestos");
+        System.out.println(calculo1.calculadoraImp(calculo1.ventas, calculo1.porcentajeImpuestos));
+        System.out.println("Cálculo dividendos, porcentaje de impuestos y exención");
+        System.out.println(calculo1.calculadoraImp(calculo1.dividendos, calculo1.porcentajeImpuestos, calculo1.exencion));
     }
 }

@@ -1,20 +1,14 @@
 public class CalculadoraImpuestos {
     int ingresos;
     double porcentajeImpuestos, dividendos, exencion, ventas;
-    //Método constructor y sobrecargas
-    public CalculadoraImpuestos(int ingresos) {
+    //Métodos constructores
+
+    public CalculadoraImpuestos(int ingresos, double porcentajeImpuestos, double dividendos, double exencion, double ventas) {
         this.ingresos = ingresos;
-    }
-
-    public CalculadoraImpuestos(double porcentajeImpuestos, double ventas) {
-        this.porcentajeImpuestos = porcentajeImpuestos;
-        this.ventas = ventas;
-    }
-
-    public CalculadoraImpuestos(double porcentajeImpuestos, double dividendos, double exencion) {
         this.porcentajeImpuestos = porcentajeImpuestos;
         this.dividendos = dividendos;
         this.exencion = exencion;
+        this.ventas = ventas;
     }
 
     //Métodos
