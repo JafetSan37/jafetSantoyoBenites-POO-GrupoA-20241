@@ -9,10 +9,6 @@ public class Employee {
         this.name = name;
         this.lastName = lastName;
     }
-    public void setAccountList(ArrayList<BankAccount> accountList) {
-        this.accountList = accountList;
-    }
-
     public String getName() {
         return name;
     }
@@ -29,11 +25,12 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public static void getAccountList(Employee employee) {
-
+    public void addAccount(BankAccount account){
+        accountList.add(account);
     }
-    public void addAccount(BankAccount Account){
-        accountList.add(Account);
+
+    public void deleteAccount(BankAccount account){
+        accountList.remove(account);
     }
 
     public ArrayList<BankAccount> getAccountList() {

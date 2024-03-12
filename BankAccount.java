@@ -2,18 +2,13 @@ public class BankAccount {
     private long accountNumber;
     private double amount;
     private char type;
-
+    //Método Constructor de la clase, para dos de sus atributos.
     public BankAccount(long accountNumber, char type) {
         this.accountNumber = accountNumber;
         this.type = type;
     }
-
     public long getAccountNumber() {
         return accountNumber;
-    }
-
-    public void setAccountNumber(long accountNumber) {
-        this.accountNumber = accountNumber;
     }
 
     public double getAmount() {

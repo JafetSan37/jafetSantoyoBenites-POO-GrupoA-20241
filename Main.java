@@ -1,9 +1,10 @@
 public class Main {
     public static void main(String[] args){
         //Seeder.agregarElementos();
-
+        //En main solamente se llaman a los métodos de las clases correspondientes.
         System.out.println("\t\nHola! Bienvenido/a!");
         boolean flag = true;
+        //Ciclo para evitar el ingreso de datos erróneos al seleccionar opción.
         do {
             System.out.println("\t\nSelecciona la opción deseada:\n1) Usuario\n2) Administrador\n3) Salir");
             System.out.print("\nOpción: ");
