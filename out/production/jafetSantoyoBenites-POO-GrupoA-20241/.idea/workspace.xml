@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e9dfc39-5787-443b-8e27-50af83e01f50" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="8e9dfc39-5787-443b-8e27-50af83e01f50" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="tarea7/unidad2/python" />
+        <entry key="$PROJECT_DIR$" value="tarea7/unidad2/java" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,6 +54,20 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="jafetSantoyoBenites-POO-GrupoA-20241" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -83,6 +95,15 @@
       <workItem from="1709564743620" duration="55000" />
       <workItem from="1709654591151" duration="2543000" />
       <workItem from="1709743295390" duration="4239000" />
+      <workItem from="1709776821526" duration="4415000" />
+      <workItem from="1709797642804" duration="333000" />
+      <workItem from="1709797981191" duration="18000" />
+      <workItem from="1709798062773" duration="1787000" />
+      <workItem from="1709828417918" duration="3143000" />
+      <workItem from="1709906486038" duration="13244000" />
+      <workItem from="1710120351956" duration="255000" />
+      <workItem from="1710171107721" duration="3481000" />
+      <workItem from="1710264573561" duration="806000" />
     </task>
     <servers />
   </component>

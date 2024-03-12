@@ -8,10 +8,8 @@ public class AdminMenu {
         do {
             System.out.println("\tSelecciona una opción:\n1) Crear Usuario\n2) Cuentas\n3) Modificar Usuario\n4) Borrar Usuario\n5) Mostrar Lista de Usuarios y Cuentas\n6) Salir\n");
             System.out.print("\nOpción: ");
-            int x = Reader.sc.nextInt(); //Siempre que se solicite algo diferente de nextLine, añadir el nextLine justo después.
-            //93\n <- lo que entra
+            int x = Reader.sc.nextInt();
             Reader.sc.nextLine();
-            //\n <- sobrante a consumir
             switch (x) {
                 case 1 -> {
                     createUser();
@@ -67,6 +65,7 @@ public class AdminMenu {
             System.out.println("\tSelecciona una opción:\n1) Agregar cuenta\n2) Modificar tipo de cuenta\n3) Eliminar cuenta\n4) Salir");
             System.out.print("\nOpción: ");
             int opc = Reader.sc.nextInt();
+            Reader.sc.nextLine();
             switch (opc){
                 case 1 ->{
                     long accountNumber = number.nextLong(100000000,999999999);
@@ -135,7 +134,7 @@ public class AdminMenu {
         System.out.println("\tSelecciona el usuario a eliminar:\n");
         int i = 0;
         for (Employee employee : Bank.getEmployeeList()){
-            System.out.printf("%d) Nombre: %s %s\n", i + 1, employee.getName(), employee.getLastName());
+            System.out.printf("%d) Nombre: %s %s\n", i+1, employee.getName(), employee.getLastName());
             i++;
         }
         op = true;
@@ -165,9 +164,9 @@ public class AdminMenu {
         } while (op);
     }
     public static void showUserAccountsList(){
-        System.out.println("\nLista de Usuarios en Sistema:\n");
+        System.out.println("\nLista de Usuarios en Sistema:");
         for (Employee employee:Bank.getEmployeeList()){
-            System.out.printf("Nombre: %s Apellido: %s \n",employee.getName(), employee.getLastName());
+            System.out.printf("\nNombre: %s Apellido: %s \n",employee.getName(), employee.getLastName());
             Employee employee1 = employee;
             for(BankAccount account:employee1.getAccountList()){
                 System.out.printf("\nCuenta: %s Tipo: %s\n",account.getAccountNumber(),account.getType());

@@ -2,10 +2,10 @@ public class Main {
     public static void main(String[] args){
         //Seeder.agregarElementos();
 
-        System.out.println("\tHola! Bienvenido/a!");
+        System.out.println("\t\nHola! Bienvenido/a!");
         boolean flag = true;
         do {
-            System.out.println("\tSelecciona la opción deseada:\n1) Usuario\n2) Administrador\n3) Salir");
+            System.out.println("\t\nSelecciona la opción deseada:\n1) Usuario\n2) Administrador\n3) Salir");
             System.out.print("\nOpción: ");
             int x = Reader.sc.nextInt();
             switch (x){
@@ -14,7 +14,7 @@ public class Main {
                     UserMenu.menuUser();
                 }
                 case 2->{
-                    System.out.println("\tBienvenido, Administrador\n");
+                    System.out.println("\t\nBienvenido, Administrador\n");
                     AdminMenu.menuAdministrator();
                 }
                 case 3->{
