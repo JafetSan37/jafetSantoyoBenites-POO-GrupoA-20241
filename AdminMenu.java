@@ -311,7 +311,7 @@ public class AdminMenu {
     public static void showUserAccountsList(){
         System.out.println("\nLista de Usuarios en Sistema:");
         for (Employee employee:Bank.getEmployeeList()){
-            System.out.printf("\nNombre: %s Apellido: %s \n",employee.getName(), employee.getLastName());
+            System.out.printf("\nNombre: %s  Apellido: %s\n",employee.getName(), employee.getLastName());
             Employee employee1 = employee;
             for(BankAccount account:employee1.getAccountList()){
                 System.out.printf("\nCuenta: %s Tipo: %s\n",account.getAccountNumber(),account.getType());
