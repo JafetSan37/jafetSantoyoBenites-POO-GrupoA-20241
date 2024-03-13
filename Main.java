@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args){
-        //Seeder.agregarElementos();
+        Seeder.agregarElementos();
         //En main solamente se llaman a los métodos de las clases correspondientes.
         System.out.println("\t\nHola! Bienvenido/a!");
         boolean flag = true;
@@ -9,13 +9,14 @@ public class Main {
             System.out.println("\t\nSelecciona la opción deseada:\n1) Usuario\n2) Administrador\n3) Salir");
             System.out.print("\nOpción: ");
             int x = Reader.sc.nextInt();
+            Reader.sc.nextLine();
             switch (x){
                 case 1->{
                     System.out.println("\nBienvenido/a!");
                     UserMenu.menuUser();
                 }
                 case 2->{
-                    System.out.println("\t\nBienvenido, Administrador\n");
+                    System.out.println("\t\nBienvenido, Administrador");
                     AdminMenu.menuAdministrator();
                 }
                 case 3->{

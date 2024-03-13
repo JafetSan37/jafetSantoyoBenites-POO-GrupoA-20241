@@ -4,7 +4,7 @@ public class UserMenu {
     public static void menuUser(){
         boolean flag = true;
         do {
-            System.out.println("\nSelecciona la opción deseada:\n1) Agregar dinero\n2) Retirar dinero\n3) Consultar Saldo 4) Salir");
+            System.out.println("\nSelecciona la opción deseada:\n1) Agregar dinero\n2) Retirar dinero\n3) Consultar Saldo\n4) Salir");
             System.out.print("\nOpción: ");
             int x = Reader.sc.nextInt();
             Reader.sc.nextLine();
@@ -29,13 +29,13 @@ public class UserMenu {
     public static void addMoney(){
         boolean flag = true;
         do {
-            System.out.println("\n1) Agregar\n2) Salir");
-            System.out.print("Opción: ");
+            System.out.println("\n1) Agregar\n2) Salir");//Esta función permite al usuario regresar al menú anterior si se arrepiente de su elección.
+            System.out.print("\nOpción: ");
             int opc = Reader.sc.nextInt();
             Reader.sc.nextLine();
             switch (opc){
                 case 1 ->{
-                    System.out.println("\tSelecciona tu usuario:\n");
+                    System.out.println("\t\nSelecciona tu usuario:");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()){
                         System.out.printf("\n%d) Usuario: %s %s\n", i + 1, employee.getName(), employee.getLastName());
@@ -46,11 +46,12 @@ public class UserMenu {
                     do {
                         System.out.print("\nRespuesta: ");
                         y = Reader.sc.nextInt() - 1;
+                        Reader.sc.nextLine();
                         if (y > Bank.getEmployeeList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     } while (op);
                     Employee employee = Bank.getEmployeeList().get(y);
-                    System.out.println("\nSelecciona la cuenta:\n");
+                    System.out.println("\nSelecciona la cuenta:");
                     int x = 0;
                     for(BankAccount account:employee.getAccountList()){
                         System.out.printf("\n%d) Cuenta: %s Tipo: %s\n",x+1,account.getAccountNumber(),account.getType());
@@ -61,12 +62,14 @@ public class UserMenu {
                     do{
                         System.out.print("\nRespuesta: ");
                         z = Reader.sc.nextInt() - 1;
+                        Reader.sc.nextLine();
                         if(z > employee.getAccountList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     }while(op);
                     BankAccount account = employee.getAccountList().get(z);
-                    System.out.print("Ingresa el monto: ");
+                    System.out.print("\nIngresa el monto: ");
                     double amount = Reader.sc.nextDouble();
+                    Reader.sc.nextLine();
                     account.setAmount(amount);
                     System.out.println("\nMonto actualizado/sin cambios. Regresando al menú...");
                 }
@@ -82,8 +85,8 @@ public class UserMenu {
     public static void drawMoney(){
         boolean flag = true;
         do {
-            System.out.println("\n1) Agregar\n2) Salir");
-            System.out.print("Opción: ");
+            System.out.println("\n1) Retirar\n2) Salir");
+            System.out.print("\nOpción: ");
             int opc = Reader.sc.nextInt();
             Reader.sc.nextLine();
             switch (opc){
@@ -99,6 +102,7 @@ public class UserMenu {
                     do {
                         System.out.print("\nRespuesta: ");
                         y = Reader.sc.nextInt() - 1;
+                        Reader.sc.nextLine();
                         if (y > Bank.getEmployeeList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     } while (op);
@@ -106,7 +110,7 @@ public class UserMenu {
                     System.out.println("\nSelecciona la cuenta:\n");
                     int x = 0;
                     for(BankAccount account:employee.getAccountList()){
-                        System.out.printf("\n%d) Cuenta: %s Tipo: %s Saldo: $%f\n",x+1,account.getAccountNumber(),account.getType(),account.getAmount());
+                        System.out.printf("\n%d) Cuenta: %s Tipo: %s Saldo: $%.2f\n",x+1,account.getAccountNumber(),account.getType(),account.getAmount());
                         x++;
                     }
                     op = true;
@@ -114,12 +118,14 @@ public class UserMenu {
                     do{
                         System.out.print("\nRespuesta: ");
                         z = Reader.sc.nextInt() - 1;
+                        Reader.sc.nextLine();
                         if(z > employee.getAccountList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     }while(op);
                     BankAccount account = employee.getAccountList().get(z);
                     System.out.print("Ingresa el monto: ");
                     double amount = Reader.sc.nextDouble();
+                    Reader.sc.nextLine();
                     account.drawMoney(amount);
                     System.out.println("\nMonto actualizado/sin cambios. Regresando al menú...");
                 }
@@ -136,12 +142,12 @@ public class UserMenu {
         boolean flag = true;
         do {
             System.out.println("\n1) Consultar\n2) Salir");
-            System.out.print("Opción: ");
+            System.out.print("\nOpción: ");
             int opc = Reader.sc.nextInt();
             Reader.sc.nextLine();
             switch (opc){
                 case 1 ->{
-                    System.out.println("\tSelecciona tu usuario:\n");
+                    System.out.println("\t\nSelecciona tu usuario:\n");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()){
                         System.out.printf("%d) Usuario: %s %s\n", i + 1, employee.getName(), employee.getLastName());
@@ -152,11 +158,12 @@ public class UserMenu {
                     do {
                         System.out.print("\nRespuesta: ");
                         y = Reader.sc.nextInt() - 1;
+                        Reader.sc.nextLine();
                         if (y > Bank.getEmployeeList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     } while (op);
                     Employee employee = Bank.getEmployeeList().get(y);
-                    System.out.println("\nSelecciona la cuenta a consultar:\n");
+                    System.out.println("\nSelecciona la cuenta a consultar:");
                     int x = 0;
                     for(BankAccount account:employee.getAccountList()){
                         System.out.printf("\n%d) Cuenta: %s Tipo: %s\n",x+1,account.getAccountNumber(),account.getType());
@@ -167,11 +174,12 @@ public class UserMenu {
                     do{
                         System.out.print("\nRespuesta: ");
                         z = Reader.sc.nextInt() - 1;
+                        Reader.sc.nextLine();
                         if(z > employee.getAccountList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     }while(op);
                     BankAccount account = employee.getAccountList().get(z);
-                    System.out.printf("\nSaldo: %f\n", account.getAmount());
+                    System.out.printf("\nSaldo: $ %.2f\n", account.getAmount());
                 }
                 case 2 ->{
                     System.out.println("\nRegresando al menú principal...");

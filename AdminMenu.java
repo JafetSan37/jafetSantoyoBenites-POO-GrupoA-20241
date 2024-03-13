@@ -8,7 +8,7 @@ public class AdminMenu {
         //Menú principal del Administrador. Se llaman a otros métodos dentro de esta clase para los sub menús correspondientes.
         boolean flag = true;
         do {
-            System.out.println("\tSelecciona una opción:\n1) Crear Usuario\n2) Cuentas\n3) Modificar Usuario\n4) Eliminar Usuario\n5) Mostrar Lista de Usuarios y Cuentas\n6) Salir\n");
+            System.out.println("\t\nSelecciona una opción:\n1) Crear Usuario\n2) Cuentas\n3) Modificar Usuario\n4) Eliminar Usuario\n5) Mostrar Lista de Usuarios y Cuentas\n6) Salir");
             System.out.print("\nOpción: ");
             int x = Reader.sc.nextInt();
             Reader.sc.nextLine();
@@ -40,7 +40,7 @@ public class AdminMenu {
         boolean flag = true;
         do {
             System.out.println("\n1) Crear\n2) Salir");
-            System.out.print("Opción: ");
+            System.out.print("\nOpción: ");
             int opc = Reader.sc.nextInt();
             Reader.sc.nextLine();
             switch (opc){
@@ -58,6 +58,7 @@ public class AdminMenu {
                         System.out.println("\tIngresa el tipo de cuenta:\nA) Cuenta tipo A: Monto máximo permitido $50,000\nB) Cuenta tipo B: Monto máximo permitido $100,000\nC) Cuenta tipo C: Saldo Ilimitado");
                         System.out.print("\nTipo: ");
                         type = Reader.sc.next().charAt(0);
+                        Reader.sc.nextLine();
                         if (type != 'A' && type != 'B' && type != 'C') System.out.println("Error. Ingresa un tipo de cuenta válido ¬¬ -_-");
                         else op = false;
                     } while (op);
@@ -78,6 +79,7 @@ public class AdminMenu {
             }
         }while(flag);
     }
+    //Método para el menú Cuentas
     public static void menuAccounts(){
         boolean flag = true;
         do {
@@ -95,15 +97,16 @@ public class AdminMenu {
                         System.out.println("\nIngresa el tipo de cuenta:\nA) Cuenta tipo A: Monto máximo permitido $50,000\nB) Cuenta tipo B: Monto máximo permitido $100,000\nC) Cuenta tipo C: Saldo Ilimitado");
                         System.out.print("\nTipo: ");
                         type = Reader.sc.next().charAt(0);
+                        Reader.sc.nextLine();
                         if (type == 'A' || type == 'B' || type == 'C') op = false;
                         else System.out.println("Error. Ingresa un tipo de cuenta válido ¬¬ -_-");
                     } while (op);
                     BankAccount account = new BankAccount(accountNumber,type);
                     int x;
-                    System.out.println("\tAsigne la cuenta al usuario:\n ");
+                    System.out.println("\t\nAsigne la cuenta al usuario:");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()) {
-                        System.out.printf("%d) Nombre: %s %s\n", i + 1, employee.getName(), employee.getLastName());
+                        System.out.printf("\n%d) Nombre: %s %s\n", i + 1, employee.getName(), employee.getLastName());
                         i++;
                     }
                     op = true;
@@ -111,6 +114,7 @@ public class AdminMenu {
                     do {
                         System.out.print("\nRespuesta: ");
                         y = Reader.sc.nextInt() - 1;
+                        Reader.sc.nextLine();
                         if (y <= Bank.getEmployeeList().size()) op = false;
                         else System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                     } while (op);
@@ -119,10 +123,10 @@ public class AdminMenu {
                     System.out.println("\nCuenta agregada. Regresando al menú...");
                 }
                 case 2->{
-                    System.out.println("\tSelecciona el usuario:\n");
+                    System.out.println("\t\nSelecciona el usuario:");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()){
-                        System.out.printf("%d) Usuario: %s %s\n", i + 1, employee.getName(), employee.getLastName());
+                        System.out.printf("\n%d) Usuario: %s %s\n", i + 1, employee.getName(), employee.getLastName());
                         i++;
                     }
                     op = true;
@@ -130,11 +134,12 @@ public class AdminMenu {
                     do {
                         System.out.print("\nRespuesta: ");
                         y = Reader.sc.nextInt() - 1;
+                        Reader.sc.nextLine();
                         if (y > Bank.getEmployeeList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     } while (op);
                     Employee employee = Bank.getEmployeeList().get(y);
-                    System.out.println("\nSelecciona la cuenta:\n");
+                    System.out.println("\nSelecciona la cuenta:");
                     int x = 0;
                     for(BankAccount account:employee.getAccountList()){
                         System.out.printf("\n%d) Cuenta: %s Tipo: %s\n",x+1,account.getAccountNumber(),account.getType());
@@ -145,6 +150,7 @@ public class AdminMenu {
                     do{
                         System.out.print("\nRespuesta: ");
                         z = Reader.sc.nextInt() - 1;
+                        Reader.sc.nextLine();
                         if(z > employee.getAccountList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     }while(op);
@@ -155,6 +161,7 @@ public class AdminMenu {
                         System.out.println("\tIngresa el tipo de cuenta:\nA) Cuenta tipo A: Monto máximo permitido $50,000\nB) Cuenta tipo B: Monto máximo permitido $100,000\nC) Cuenta tipo C: Saldo Ilimitado");
                         System.out.print("\nTipo: ");
                         type = Reader.sc.next().charAt(0);
+                        Reader.sc.nextLine();
                         if (type != 'A' && type != 'B' && type != 'C') System.out.println("Error. Ingresa un tipo de cuenta válido ¬¬ -_-");
                         else op = false;
                     } while (op);
@@ -162,10 +169,10 @@ public class AdminMenu {
                     System.out.println("\nTipo de cuenta actualizada/sin cambios. Regresando al menú...");
                 }
                 case 3->{
-                    System.out.println("\tSelecciona el usuario:\n");
+                    System.out.println("\t\nSelecciona el usuario:");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()){
-                        System.out.printf("%d) Usuario: %s %s\n", i + 1, employee.getName(), employee.getLastName());
+                        System.out.printf("\n%d) Usuario: %s %s\n", i + 1, employee.getName(), employee.getLastName());
                         i++;
                     }
                     op = true;
@@ -173,11 +180,12 @@ public class AdminMenu {
                     do {
                         System.out.print("\nRespuesta: ");
                         y = Reader.sc.nextInt() - 1;
+                        Reader.sc.nextLine();
                         if (y > Bank.getEmployeeList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     } while (op);
                     Employee employee = Bank.getEmployeeList().get(y);
-                    System.out.println("\nSelecciona la cuenta:\n");
+                    System.out.println("\nSelecciona la cuenta:");
                     int x = 0;
                     for(BankAccount account:employee.getAccountList()){
                         System.out.printf("\n%d) Cuenta: %s Tipo: %s\n",x+1,account.getAccountNumber(),account.getType());
@@ -188,6 +196,7 @@ public class AdminMenu {
                     do{
                         System.out.print("\nRespuesta: ");
                         z = Reader.sc.nextInt() - 1;
+                        Reader.sc.nextLine();
                         if(z > employee.getAccountList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     }while(op);
@@ -195,8 +204,9 @@ public class AdminMenu {
                     System.out.println("\nSeguro/a que deseas eliminar la cuenta?\n1) Sí\n2) No");
                     op = true;
                     do {
-                        System.out.print("Respuesta: ");
+                        System.out.print("\nRespuesta: ");
                         int res = Reader.sc.nextInt();
+                        Reader.sc.nextLine();
                         if (res != 1 && res != 2) System.out.println("Error. Selecciona una opción válida ¬¬ -_-");
                         else if (res == 1){
                             System.out.println("Eliminando...");
@@ -221,15 +231,15 @@ public class AdminMenu {
         boolean flag = true;
         do {
             System.out.println("\n1) Modificar\n2) Salir");
-            System.out.print("Opción: ");
+            System.out.print("\nOpción: ");
             int opc = Reader.sc.nextInt();
             Reader.sc.nextLine();
             switch (opc){
                 case 1 ->{
-                    System.out.println("\tSelecciona el usuario:\n ");
+                    System.out.println("\t\nSelecciona el usuario:");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()) {
-                        System.out.printf("%d) Nombre: %s %s\n", i + 1, employee.getName(), employee.getLastName());
+                        System.out.printf("\n%d) Nombre: %s %s\n", i + 1, employee.getName(), employee.getLastName());
                         i++;
                     }
                     op = true;
@@ -237,6 +247,7 @@ public class AdminMenu {
                     do {
                         System.out.print("\nRespuesta: ");
                         y = Reader.sc.nextInt() - 1;
+                        Reader.sc.nextLine();
                         if (y > Bank.getEmployeeList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     } while (op);
@@ -263,15 +274,15 @@ public class AdminMenu {
         boolean flag = true;
         do {
             System.out.println("\n1) Eliminar\n2) Salir");
-            System.out.print("Opción: ");
+            System.out.print("\nOpción: ");
             int opc = Reader.sc.nextInt();
             Reader.sc.nextLine();
             switch (opc){
                 case 1 ->{
-                    System.out.println("\tSelecciona el usuario a eliminar:\n");
+                    System.out.println("\t\nSelecciona el usuario a eliminar:");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()){
-                        System.out.printf("%d) Nombre: %s %s\n", i+1, employee.getName(), employee.getLastName());
+                        System.out.printf("\n%d) Nombre: %s %s\n", i+1, employee.getName(), employee.getLastName());
                         i++;
                     }
                     op = true;
@@ -279,6 +290,7 @@ public class AdminMenu {
                     do {
                         System.out.print("\nRespuesta: ");
                         y = Reader.sc.nextInt() - 1;
+                        Reader.sc.nextLine();
                         if (y > Bank.getEmployeeList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     } while (op);
@@ -286,8 +298,9 @@ public class AdminMenu {
                     System.out.printf("\nSeguro/a que deseas eliminar a %s %s?\n1) Sí\n2) No", employee.getName(), employee.getLastName());
                     op = true;
                     do {
-                        System.out.print("Respuesta: ");
+                        System.out.print("\nRespuesta: ");
                         int res = Reader.sc.nextInt();
+                        Reader.sc.nextLine();
                         if (res != 1 && res != 2) System.out.println("Error. Selecciona una opción válida ¬¬ -_-");
                         else if (res == 1){
                             System.out.println("Eliminando...");
@@ -314,7 +327,7 @@ public class AdminMenu {
             System.out.printf("\nNombre: %s  Apellido: %s\n",employee.getName(), employee.getLastName());
             Employee employee1 = employee;
             for(BankAccount account:employee1.getAccountList()){
-                System.out.printf("\nCuenta: %s Tipo: %s\n",account.getAccountNumber(),account.getType());
+                System.out.printf("Cuenta: %s Tipo: %s\n",account.getAccountNumber(),account.getType());
             }
         }
     }
