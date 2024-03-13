@@ -83,7 +83,7 @@ public class AdminMenu {
     public static void menuAccounts(){
         boolean flag = true;
         do {
-            System.out.println("\tSelecciona una opción:\n1) Agregar cuenta\n2) Modificar tipo de cuenta\n3) Eliminar cuenta\n4) Salir");
+            System.out.println("\t\nSelecciona una opción:\n1) Agregar cuenta\n2) Modificar tipo de cuenta\n3) Eliminar cuenta\n4) Salir");
             System.out.print("\nOpción: ");
             int opc = Reader.sc.nextInt();
             Reader.sc.nextLine();
@@ -103,10 +103,10 @@ public class AdminMenu {
                     } while (op);
                     BankAccount account = new BankAccount(accountNumber,type);
                     int x;
-                    System.out.println("\t\nAsigne la cuenta al usuario:");
+                    System.out.println("\t\nAsigne la cuenta al usuario:\n");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()) {
-                        System.out.printf("\n%d) Nombre: %s %s\n", i + 1, employee.getName(), employee.getLastName());
+                        System.out.printf("%d) Nombre: %s %s\n", i + 1, employee.getName(), employee.getLastName());
                         i++;
                     }
                     op = true;
@@ -123,10 +123,10 @@ public class AdminMenu {
                     System.out.println("\nCuenta agregada. Regresando al menú...");
                 }
                 case 2->{
-                    System.out.println("\t\nSelecciona el usuario:");
+                    System.out.println("\t\nSelecciona el usuario:\n");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()){
-                        System.out.printf("\n%d) Usuario: %s %s\n", i + 1, employee.getName(), employee.getLastName());
+                        System.out.printf("%d) Usuario: %s %s\n", i + 1, employee.getName(), employee.getLastName());
                         i++;
                     }
                     op = true;
@@ -139,10 +139,10 @@ public class AdminMenu {
                         else op = false;
                     } while (op);
                     Employee employee = Bank.getEmployeeList().get(y);
-                    System.out.println("\nSelecciona la cuenta:");
+                    System.out.println("\nSelecciona la cuenta:\n");
                     int x = 0;
                     for(BankAccount account:employee.getAccountList()){
-                        System.out.printf("\n%d) Cuenta: %s Tipo: %s\n",x+1,account.getAccountNumber(),account.getType());
+                        System.out.printf("%d) Cuenta: %s Tipo: %s\n",x+1,account.getAccountNumber(),account.getType());
                         x++;
                     }
                     op = true;
@@ -166,13 +166,13 @@ public class AdminMenu {
                         else op = false;
                     } while (op);
                     account.setType(type);
-                    System.out.println("\nTipo de cuenta actualizada/sin cambios. Regresando al menú...");
+                    System.out.println("\nTipo de cuenta actualizada. Regresando al menú...");
                 }
                 case 3->{
-                    System.out.println("\t\nSelecciona el usuario:");
+                    System.out.println("\t\nSelecciona el usuario:\n");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()){
-                        System.out.printf("\n%d) Usuario: %s %s\n", i + 1, employee.getName(), employee.getLastName());
+                        System.out.printf("%d) Usuario: %s %s\n", i + 1, employee.getName(), employee.getLastName());
                         i++;
                     }
                     op = true;
@@ -185,10 +185,10 @@ public class AdminMenu {
                         else op = false;
                     } while (op);
                     Employee employee = Bank.getEmployeeList().get(y);
-                    System.out.println("\nSelecciona la cuenta:");
+                    System.out.println("\nSelecciona la cuenta:\n");
                     int x = 0;
                     for(BankAccount account:employee.getAccountList()){
-                        System.out.printf("\n%d) Cuenta: %s Tipo: %s\n",x+1,account.getAccountNumber(),account.getType());
+                        System.out.printf("%d) Cuenta: %s Tipo: %s\n",x+1,account.getAccountNumber(),account.getType());
                         x++;
                     }
                     op = true;
@@ -236,10 +236,10 @@ public class AdminMenu {
             Reader.sc.nextLine();
             switch (opc){
                 case 1 ->{
-                    System.out.println("\t\nSelecciona el usuario:");
+                    System.out.println("\t\nSelecciona el usuario:\n");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()) {
-                        System.out.printf("\n%d) Nombre: %s %s\n", i + 1, employee.getName(), employee.getLastName());
+                        System.out.printf("%d) Nombre: %s %s\n", i + 1, employee.getName(), employee.getLastName());
                         i++;
                     }
                     op = true;
@@ -279,10 +279,10 @@ public class AdminMenu {
             Reader.sc.nextLine();
             switch (opc){
                 case 1 ->{
-                    System.out.println("\t\nSelecciona el usuario a eliminar:");
+                    System.out.println("\t\nSelecciona el usuario a eliminar:\n");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()){
-                        System.out.printf("\n%d) Nombre: %s %s\n", i+1, employee.getName(), employee.getLastName());
+                        System.out.printf("%d) Nombre: %s %s\n", i+1, employee.getName(), employee.getLastName());
                         i++;
                     }
                     op = true;

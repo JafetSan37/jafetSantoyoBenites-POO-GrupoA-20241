@@ -22,6 +22,7 @@ public class UserMenu {
                     System.out.println("\nRegresando al menú anterior...");
                     flag = false;
                 }
+                default -> System.out.println("Error. Selecciona una opción válida ¬¬ -_-");
             }
         }while(flag);
     }
@@ -35,10 +36,10 @@ public class UserMenu {
             Reader.sc.nextLine();
             switch (opc){
                 case 1 ->{
-                    System.out.println("\t\nSelecciona tu usuario:");
+                    System.out.println("\t\nSelecciona tu usuario:\n");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()){
-                        System.out.printf("\n%d) Usuario: %s %s\n", i + 1, employee.getName(), employee.getLastName());
+                        System.out.printf("%d) Usuario: %s %s\n", i + 1, employee.getName(), employee.getLastName());
                         i++;
                     }
                     op = true;
@@ -51,10 +52,10 @@ public class UserMenu {
                         else op = false;
                     } while (op);
                     Employee employee = Bank.getEmployeeList().get(y);
-                    System.out.println("\nSelecciona la cuenta:");
+                    System.out.println("\nSelecciona la cuenta:\n");
                     int x = 0;
                     for(BankAccount account:employee.getAccountList()){
-                        System.out.printf("\n%d) Cuenta: %s Tipo: %s\n",x+1,account.getAccountNumber(),account.getType());
+                        System.out.printf("%d) Cuenta: %s Tipo: %s\n",x+1,account.getAccountNumber(),account.getType());
                         x++;
                     }
                     op = true;
@@ -91,7 +92,7 @@ public class UserMenu {
             Reader.sc.nextLine();
             switch (opc){
                 case 1 ->{
-                    System.out.println("\tSelecciona tu usuario:\n");
+                    System.out.println("\t\nSelecciona tu usuario:\n");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()){
                         System.out.printf("%d) Usuario: %s %s\n", i + 1, employee.getName(), employee.getLastName());
@@ -110,7 +111,7 @@ public class UserMenu {
                     System.out.println("\nSelecciona la cuenta:\n");
                     int x = 0;
                     for(BankAccount account:employee.getAccountList()){
-                        System.out.printf("\n%d) Cuenta: %s Tipo: %s Saldo: $%.2f\n",x+1,account.getAccountNumber(),account.getType(),account.getAmount());
+                        System.out.printf("%d) Cuenta: %s Tipo: %s Saldo: $ %.2f\n",x+1,account.getAccountNumber(),account.getType(),account.getAmount());
                         x++;
                     }
                     op = true;
@@ -123,7 +124,7 @@ public class UserMenu {
                         else op = false;
                     }while(op);
                     BankAccount account = employee.getAccountList().get(z);
-                    System.out.print("Ingresa el monto: ");
+                    System.out.print("\nIngresa el monto: ");
                     double amount = Reader.sc.nextDouble();
                     Reader.sc.nextLine();
                     account.drawMoney(amount);
@@ -163,10 +164,10 @@ public class UserMenu {
                         else op = false;
                     } while (op);
                     Employee employee = Bank.getEmployeeList().get(y);
-                    System.out.println("\nSelecciona la cuenta a consultar:");
+                    System.out.println("\nSelecciona la cuenta a consultar:\n");
                     int x = 0;
                     for(BankAccount account:employee.getAccountList()){
-                        System.out.printf("\n%d) Cuenta: %s Tipo: %s\n",x+1,account.getAccountNumber(),account.getType());
+                        System.out.printf("%d) Cuenta: %s Tipo: %s\n",x+1,account.getAccountNumber(),account.getType());
                         x++;
                     }
                     op = true;
