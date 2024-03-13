@@ -102,7 +102,7 @@ public class AdminMenu {
                         else System.out.println("Error. Ingresa un tipo de cuenta válido ¬¬ -_-");
                     } while (op);
                     BankAccount account = new BankAccount(accountNumber,type);
-                    int x;
+                    int x = 0;
                     System.out.println("\t\nAsigne la cuenta al usuario:\n");
                     int i = 0;
                     for (Employee employee : Bank.getEmployeeList()) {
@@ -113,8 +113,9 @@ public class AdminMenu {
                     int y;
                     do {
                         System.out.print("\nRespuesta: ");
-                        y = Reader.sc.nextInt() - 1;
+                        y = Reader.sc.nextInt();
                         Reader.sc.nextLine();
+                        y -= 1;
                         if (y <= Bank.getEmployeeList().size()) op = false;
                         else System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                     } while (op);
@@ -133,8 +134,9 @@ public class AdminMenu {
                     int y;
                     do {
                         System.out.print("\nRespuesta: ");
-                        y = Reader.sc.nextInt() - 1;
+                        y = Reader.sc.nextInt();
                         Reader.sc.nextLine();
+                        y -= 1;
                         if (y > Bank.getEmployeeList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     } while (op);
@@ -149,8 +151,9 @@ public class AdminMenu {
                     int z;
                     do{
                         System.out.print("\nRespuesta: ");
-                        z = Reader.sc.nextInt() - 1;
+                        z = Reader.sc.nextInt();
                         Reader.sc.nextLine();
+                        z -= 1;
                         if(z > employee.getAccountList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     }while(op);
@@ -179,8 +182,9 @@ public class AdminMenu {
                     int y;
                     do {
                         System.out.print("\nRespuesta: ");
-                        y = Reader.sc.nextInt() - 1;
+                        y = Reader.sc.nextInt();
                         Reader.sc.nextLine();
+                        y -= 1;
                         if (y > Bank.getEmployeeList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     } while (op);
@@ -195,8 +199,9 @@ public class AdminMenu {
                     int z;
                     do{
                         System.out.print("\nRespuesta: ");
-                        z = Reader.sc.nextInt() - 1;
+                        z = Reader.sc.nextInt();
                         Reader.sc.nextLine();
+                        z -= 1;
                         if(z > employee.getAccountList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     }while(op);
@@ -246,8 +251,9 @@ public class AdminMenu {
                     int y;
                     do {
                         System.out.print("\nRespuesta: ");
-                        y = Reader.sc.nextInt() - 1;
+                        y = Reader.sc.nextInt();
                         Reader.sc.nextLine();
+                        y -= 1;
                         if (y > Bank.getEmployeeList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     } while (op);
@@ -289,8 +295,9 @@ public class AdminMenu {
                     int y;
                     do {
                         System.out.print("\nRespuesta: ");
-                        y = Reader.sc.nextInt() - 1;
+                        y = Reader.sc.nextInt();
                         Reader.sc.nextLine();
+                        y -= 1;
                         if (y > Bank.getEmployeeList().size()) System.out.println("Error. Ingresa una opción válida ¬¬ -_-");
                         else op = false;
                     } while (op);
