@@ -39,10 +39,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "Application.Main.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "tarea7/unidad2/java",
+    "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/DELL-UserFIND/OneDrive/Escritorio/Tecnológico de Morelia/Ing en Sistemas Computacionales/2do Semestre/POO/jafetSantoyoBenites-POO-GrupoA-20241",
     "node.js.detected.package.eslint": "true",
@@ -54,6 +54,14 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DELL-UserFIND\OneDrive\Escritorio\Tecnológico de Morelia\Ing en Sistemas Computacionales\2do Semestre\POO\jafetSantoyoBenites-POO-GrupoA-20241" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -103,7 +111,8 @@
       <workItem from="1709906486038" duration="13244000" />
       <workItem from="1710120351956" duration="255000" />
       <workItem from="1710171107721" duration="3481000" />
-      <workItem from="1710264573561" duration="806000" />
+      <workItem from="1710264573561" duration="23065000" />
+      <workItem from="1710307177785" duration="123000" />
     </task>
     <servers />
   </component>
@@ -120,5 +129,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" log-stack="true" type="java-exception">
+          <properties class="java.util.InputMismatchException" package="java.util" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
