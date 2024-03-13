@@ -4,7 +4,6 @@ public class MenuLibrary {
     public static void libraryMenu(){
         System.out.println("\nSelecciona una opción:\n1) Registrar Libro\n2) Registrar Usuario\n3) Libros\n4) Usuarios\n5)Salir");
     }
-
     public void registerBook(){
         Random number = new Random();
         boolean flag = true;

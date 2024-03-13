@@ -7,6 +7,7 @@ public class Users {
     private int age;
     private String address;
     private ArrayList<Books> rentedBooks = new ArrayList<>();
+    private ArrayList<SaleBooks> soldBooks = new ArrayList<>();
 
     public Users(int IDuser, String name, String lastName, int age, String address) {
         this.IDuser = IDuser;
@@ -56,7 +57,23 @@ public class Users {
         return rentedBooks;
     }
 
+    public void setRentedBooks(ArrayList<Books> rentedBooks) {
+        this.rentedBooks = rentedBooks;
+    }
+
     public void addBookUser(Books book){
         rentedBooks.add(book);
+    }
+
+    public ArrayList<SaleBooks> getSoldBooks() {
+        return soldBooks;
+    }
+
+    public void setSoldBooks(ArrayList<SaleBooks> soldBooks) {
+        this.soldBooks = soldBooks;
+    }
+
+    public void addSoldBookUser(SaleBooks book){
+        soldBooks.add(book);
     }
 }
