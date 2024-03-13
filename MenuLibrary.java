@@ -80,7 +80,49 @@ public class MenuLibrary {
         }while(sig);
     }
     public void menuBooks(){
-        
+        boolean pt = true;
+        int opc, i;
+        do{
+            System.out.println("\nSelecciona la opción deseada:\n1) Consultar biblioteca (rentas)\n2) Consultar librería (ventas)\n3) Libros disponibles para renta\n4) Libros disponibles en venta\n5) Salir");
+            System.out.print("\nOpción: ");
+            opc = Reader.sc.nextInt();
+            Reader.sc.nextLine();
+            switch (opc){
+                case 1 ->{
+                    for(Books book:Library.getBooksList()){
+                        System.out.printf("\nID: %s\nTítulo: %s\nAutor: %s\nAño de Publicación: %d\n",book.getID(),book.getTitle(),book.getAuthor(),book.getYear());
+                        System.out.println("**************");
+                    }
+                }
+                case 2 ->{
+                    for(SaleBooks book:Library.getBooksSell()){
+                        System.out.printf("\nID: %s\nTítulo: %s\nAutor: %s\nAño de Publicación: %d\n",book.getID(),book.getTitle(),book.getAuthor(),book.getYear());
+                        System.out.println("**************");
+                    }
+                }
+                case 3 ->{
+                    for(Books book:Library.getBooksList()){
+                        if(book.isRented()){
+                            System.out.printf("\nID: %s\nTítulo: %s\nAutor: %s\nAño de Publicación: %d\n",book.getID(),book.getTitle(),book.getAuthor(),book.getYear());
+                            System.out.println("**************");
+                        }
+                    }
+                }
+                case 4 ->{
+                    for(SaleBooks book:Library.getBooksSell()){
+                        if(book.isAvailable()){
+                            System.out.printf("\nID: %s\nTítulo: %s\nAutor: %s\nAño de Publicación: %d\n",book.getID(),book.getTitle(),book.getAuthor(),book.getYear());
+                            System.out.println("**************");
+                        }
+                    }
+                }
+                case 5 ->{
+                    System.out.println("\nRegresando al menú anterior...");
+                    pt = false;
+                }
+                default -> System.out.println("Error. Selecciona una opción válida.");
+            }
+        }while(pt);
     }
     public void menuUsers(){
 
