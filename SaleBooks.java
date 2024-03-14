@@ -8,7 +8,7 @@ public class SaleBooks {
     private int year;
     private double price;
     private int inventory;
-    private boolean available = true;
+    private boolean available;
     //Método Constructor de la clase.
     public SaleBooks(int ID, String title, String author, int year, int price, int inventory) {
         this.ID = ID;
@@ -17,7 +17,7 @@ public class SaleBooks {
         this.year = year;
         this.price = price;
         this.inventory = inventory;
-        this.available = available;
+        this.available = true;
     }
     //Getters y Setters de la clase.
     public int getID() {

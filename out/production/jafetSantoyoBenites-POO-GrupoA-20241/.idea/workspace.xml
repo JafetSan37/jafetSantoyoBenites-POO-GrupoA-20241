@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8e9dfc39-5787-443b-8e27-50af83e01f50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PreChargedBooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/PreChargedObjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/Users.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="tarea7/unidad2/python" />
+        <entry key="$PROJECT_DIR$" value="tarea7/unidad2/java" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,23 +41,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "tarea7/unidad2/java",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/DELL-UserFIND/OneDrive/Escritorio/Tecnológico de Morelia/Ing en Sistemas Computacionales/2do Semestre/POO/jafetSantoyoBenites-POO-GrupoA-20241",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "configurable.group.build",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tarea8/unidad2/java&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/DELL-UserFIND/OneDrive/Escritorio/Tecnológico de Morelia/Ing en Sistemas Computacionales/2do Semestre/POO/jafetSantoyoBenites-POO-GrupoA-20241&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DELL-UserFIND\OneDrive\Escritorio\Tecnológico de Morelia\Ing en Sistemas Computacionales\2do Semestre\POO\jafetSantoyoBenites-POO-GrupoA-20241" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="jafetSantoyoBenites-POO-GrupoA-20241" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -83,6 +107,19 @@
       <workItem from="1709564743620" duration="55000" />
       <workItem from="1709654591151" duration="2543000" />
       <workItem from="1709743295390" duration="4239000" />
+      <workItem from="1709776821526" duration="4415000" />
+      <workItem from="1709797642804" duration="333000" />
+      <workItem from="1709797981191" duration="18000" />
+      <workItem from="1709798062773" duration="1787000" />
+      <workItem from="1709828417918" duration="3143000" />
+      <workItem from="1709906486038" duration="13244000" />
+      <workItem from="1710120351956" duration="255000" />
+      <workItem from="1710171107721" duration="3481000" />
+      <workItem from="1710264573561" duration="23065000" />
+      <workItem from="1710307177785" duration="123000" />
+      <workItem from="1710342199979" duration="10319000" />
+      <workItem from="1710356893654" duration="30691000" />
+      <workItem from="1710403212121" duration="1189000" />
     </task>
     <servers />
   </component>
@@ -99,5 +136,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" log-stack="true" type="java-exception">
+          <properties class="java.util.InputMismatchException" package="java.util" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

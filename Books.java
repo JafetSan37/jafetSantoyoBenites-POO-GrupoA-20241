@@ -3,14 +3,14 @@ public class Books {
     private String title;
     private String author;
     private int year;
-    private boolean rented = false;
+    private boolean rented;
 
     public Books(int ID, String title, String author, int year) {
         this.ID = ID;
         this.title = title;
         this.author = author;
         this.year = year;
-        this.rented = rented;
+        this.rented = false;
     }
     //Getters y Setters de la clase
     public int getID() {

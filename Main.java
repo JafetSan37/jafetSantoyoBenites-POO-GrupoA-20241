@@ -10,12 +10,8 @@ public class Main {
             opc = Reader.sc.nextInt();
             Reader.sc.nextLine();
             switch (opc){
-                case 1 ->{
-                    MenuLibrary.libraryMenu();
-                }
-                case 2 ->{
-                    MenuUser.userMenu();
-                }
+                case 1 -> MenuUser.userMenu();
+                case 2 -> MenuLibrary.libraryMenu();
                 case 3 ->{
                     System.out.println("\nHasta luego!\n");
                     flag = false;

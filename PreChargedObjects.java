@@ -8,16 +8,22 @@ public class PreChargedObjects {
         int a,b,c,d,e,f;
         a = number.nextInt(100000, 999999);
         Books book1 = new Books(a, "Cazadores de Sombras: Ciudad de Hueso","Cassandra Clare",2007);
+        book1.setRented(false);
         b = number.nextInt(100000, 999999);
         Books book2 = new Books(b,"Caballo de Troya 1: Jerusalén","J.J. Benítez",1987);
+        book2.setRented(false);
         c = number.nextInt(100000, 999999);
         Books book3 = new Books(c,"Amarse con los Ojos Abiertos","J.Bucay y S.Salinas",2002);
+        book3.setRented(false);
         d = number.nextInt(100000, 999999);
         Books book4 = new Books(d, "Harry Potter: La Piedra Filosofal","J.K. Rowling",2001);
+        book4.setRented(false);
         e = number.nextInt(100000, 999999);
         Books book5 = new Books(e,"GOG","J.J. Benítez",2017);
+        book5.setRented(false);
         f = number.nextInt(100000, 999999);
         Books book6 = new Books(f,"Los Cuatro Acuerdos","Miguel Ruiz",2000);
+        book6.setRented(false);
         //Añadiendo los libros a la librería
         Library.addBook(book1);
         Library.addBook(book2);
@@ -29,16 +35,22 @@ public class PreChargedObjects {
         int h,i,j,k,l,m;
         h = number.nextInt(100000, 999999);
         SaleBooks sellbook1 = new SaleBooks(h,"Cazadores de Sombras: Ciudad de Hueso","Cassandra Clare",2017,328,15);
+        sellbook1.setAvailable(true);
         i = number.nextInt(100000, 999999);
         SaleBooks sellbook2 = new SaleBooks(i,"Caballo de Troya 1: Jerusalén","J.J. Benítez",2011,418,5);
+        sellbook2.setAvailable(true);
         j = number.nextInt(100000, 999999);
         SaleBooks sellbook3 = new SaleBooks(j,"Amarse con los Ojos Abiertos","J.Bucay y S.Salinas",2019,345,12);
+        sellbook3.setAvailable(true);
         k = number.nextInt(100000, 999999);
         SaleBooks sellbook4 = new SaleBooks(k, "Harry Potter: La Piedra Filosofal","J.K. Rowling",2020,369,10);
+        sellbook4.setAvailable(true);
         l = number.nextInt(100000, 999999);
         SaleBooks sellbook5 = new SaleBooks(l,"GOG","J.J. Benítez",2022,158,20);
+        sellbook5.setAvailable(true);
         m = number.nextInt(100000, 999999);
         SaleBooks sellbook6 = new SaleBooks(m,"Los Cuatro Acuerdos","Miguel Ruiz",2009,280,6);
+        sellbook6.setAvailable(true);
         //Añadiendo a la librería sección ventas
         Library.addSellBook(sellbook1);
         Library.addSellBook(sellbook2);
