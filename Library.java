@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class Library {
-    private ArrayList<Books> booksList = new ArrayList<>();
-    private ArrayList<Users> usersList = new ArrayList<>();
-    private ArrayList<SaleBooks> booksSell = new ArrayList<>();
+public class Library { //la clase es andy
+    private static ArrayList<Books> booksList = new ArrayList<>();
+    private static ArrayList<Users> usersList = new ArrayList<>();
+    private static ArrayList<SaleBooks> booksSell = new ArrayList<>();
     //Getters y Setters de la clase.
     public ArrayList<Books> getBooksList() {
         return booksList;
@@ -13,6 +13,10 @@ public class Library {
     }
     public ArrayList<SaleBooks> getBooksSell() {
         return booksSell;
+    }
+
+    public static ArrayList<Books> getBooks() { //hacer algo static es como poner el nombre de andy en su bota
+        return booksList;
     }
 
     //Métodos para añadir elementos a las listas correspondientes.

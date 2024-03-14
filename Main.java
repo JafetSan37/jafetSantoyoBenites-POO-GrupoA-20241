@@ -1,6 +1,8 @@
 public class Main {
     public static void main(String[] args){
         Reader reader = new Reader();
+        PreChargedObjects Seeder = new PreChargedObjects();
+        Seeder.addElements();
         MenuUser menuUser = new MenuUser();
         MenuLibrary menuLibrary = new MenuLibrary();
         boolean flag = true;
