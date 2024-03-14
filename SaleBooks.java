@@ -9,7 +9,7 @@ public class SaleBooks {
     private double price;
     private int inventory;
     private boolean available = true;
-
+    //Método Constructor de la clase.
     public SaleBooks(int ID, String title, String author, int year, int price, int inventory) {
         this.ID = ID;
         this.title = title;
@@ -19,60 +19,47 @@ public class SaleBooks {
         this.inventory = inventory;
         this.available = available;
     }
-
+    //Getters y Setters de la clase.
     public int getID() {
         return ID;
     }
-
     public void setID(int ID) {
         ID = number.nextInt(10000000,99999999);
         this.ID = ID;
     }
-
     public String getTitle() {
         return title;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }
-
     public String getAuthor() {
         return author;
     }
-
     public void setAuthor(String author) {
         this.author = author;
     }
-
     public int getYear() {
         return year;
     }
-
     public void setYear(int year) {
         this.year = year;
     }
-
     public int getInventory() {
         return inventory;
     }
-
     public void setInventory(int inventory) {
         this.inventory = inventory;
     }
-
     public double getPrice() {
         return price;
     }
-
     public void setPrice(double price) {
         this.price = price;
     }
-
     public boolean isAvailable() {
         return available;
     }
-
     public void setAvailable(boolean available) {
         this.available = available;
     }

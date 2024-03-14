@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MenuLibrary {
@@ -10,18 +11,10 @@ public class MenuLibrary {
             x = Reader.sc.nextInt();
             Reader.sc.nextLine();
             switch (x){
-                case 1 ->{
-                    registerBook();
-                }
-                case 2 ->{
-                    registerUser();
-                }
-                case 3 ->{
-                    menuBooks();
-                }
-                case 4 ->{
-                    menuUsers();
-                }
+                case 1 -> registerBook();
+                case 2 -> registerUser();
+                case 3 -> menuBooks();
+                case 4 -> menuUsers();
                 case 5 ->{
                     System.out.println("\nRegresando al menú principal...");
                     flag = false;
@@ -114,6 +107,10 @@ public class MenuLibrary {
                         System.out.println("\nRegistrando usuario..");
                         idUser = number.nextInt(100000,999999);
                         Users user = new Users(idUser,name,lastName,age,cellNumber,address);
+                        ArrayList<Books> rentedBooks = new ArrayList<>();
+                        user.setRentedBooks(rentedBooks);
+                        ArrayList<SaleBooks> soldBooks = new ArrayList<>();
+                        user.setSoldBooks(soldBooks);
                         System.out.println("\nAñadiendo a base de datos...");
                         Library.addUser(user);
                         System.out.println("\nUsuario registrado!");
@@ -526,6 +523,7 @@ public class MenuLibrary {
                             }
                             case 6 ->{
                                 System.out.println("\nRegresando al menú principal...");
+                                op = false;
                             }
                             default -> System.out.println("Error. Selecciona una opción válida");
                         }
