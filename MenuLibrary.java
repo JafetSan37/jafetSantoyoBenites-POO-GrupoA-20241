@@ -176,12 +176,14 @@ public class MenuLibrary {
                     }
                 }
                 case 5 ->{
+                    st = true;
                     do{
                         System.out.println("\n1) Libros para Renta\n2) Libros para Venta\n3) Salir");
                         a = Reader.sc.nextInt();
                         Reader.sc.nextLine();
                         switch (a){
                             case 1 ->{
+                                op = true;
                                 j = 1;
                                 System.out.println("\t\nSelecciona el libro a modificar:\n");
                                 for (Books books : Library.getBooksList()){
@@ -237,6 +239,7 @@ public class MenuLibrary {
                                 }while (op);
                             }
                             case 2 ->{
+                                op = true;
                                 k = 1;
                                 System.out.println("\t\nSelecciona el libro a modificar:\n");
                                 for (SaleBooks book : Library.getBooksSell()){
@@ -317,12 +320,14 @@ public class MenuLibrary {
                     }while(st);
                 }
                 case 6 ->{
+                    st = true;
                     do{
                         System.out.println("\n1) Libros para Renta\n2) Libros para Venta\n3) Salir");
                         a = Reader.sc.nextInt();
                         Reader.sc.nextLine();
                         switch (a){
                             case 1 ->{
+                                op = true;
                                 j = 1;
                                 System.out.println("\t\nSelecciona el libro a eliminar:\n");
                                 for (Books book : Library.getBooksList()){
@@ -359,6 +364,7 @@ public class MenuLibrary {
                                 } while (op);
                             }
                             case 2 ->{
+                                op = true;
                                 k = 1;
                                 System.out.println("\t\nSelecciona el libro a eliminar:\n");
                                 for (SaleBooks book : Library.getBooksSell()){
@@ -411,8 +417,9 @@ public class MenuLibrary {
         }while(pt);
     }
     public static void menuUsers(){
-        boolean st = true, op = true;
-        int opc,b,i,y,r;
+        boolean st = true, op = true, ag = true;
+        int opc,b,i,y,r,cellNumber,age;
+        String name,lastName,address;
         do{
             System.out.println("\nSelecciona la opción deseada:\n1) Mostrar Usuarios Registrados\n2) Usuarios con renta de libros\n3) Usuarios con historial de compras\n4) Modificar Usuario\n5) Eliminar Usuario\n6) Salir");
             System.out.print("\nOpción: ");
@@ -448,10 +455,88 @@ public class MenuLibrary {
                     }
                 }
                 case 4 ->{
+                    op = true;
+                    i = 1;
+                    System.out.println("\t\nSelecciona el usuario a modificar:\n");
+                    for (Users users4 : Library.getUsersList()){
+                        System.out.printf("\n%d) Nombre: %s %s", i, users4.getName(), users4.getLastName());
+                        i++;
+                    }
+                    do {
+                        y = 0;
+                        System.out.print("\nRespuesta: ");
+                        y = Reader.sc.nextInt();
+                        Reader.sc.nextLine();
+                        y -= 1;
+                        if (y > Library.getUsersList().size()) System.out.println("Error. Ingresa una opción válida.");
+                        else op = false;
+                    } while (op);
+                    op = true;
+                    Users user = Library.getUsersList().get(y);
+                    do{
+                        System.out.println("\t\nSelecciona el dato a modificar:\n");
+                        System.out.printf("\n1) Nombre: %s\n2) Apellidos: %s\n3) Teléfono: %d\n4) Edad: %d\n5) Dirección: %s\n6) Salir",user.getName(),user.getLastName(),user.getCellNumber(),user.getAge(),user.getAddress());
+                        System.out.print("\nRespuesta: ");
+                        r = Reader.sc.nextInt();
+                        Reader.sc.nextLine();
+                        switch (r){
+                            case 1 ->{
+                                System.out.print("\nIngresa el nombre: ");
+                                name = Reader.sc.nextLine();
+                                System.out.println("\nModificando nombre...");
+                                user.setName(name);
+                                System.out.println("\nNombre modificado!");
+                            }
+                            case 2 ->{
+                                System.out.print("\nIngresa el apellido: ");
+                                lastName = Reader.sc.nextLine();
+                                System.out.println("\nModificando apellido...");
+                                user.setLastName(lastName);
+                                System.out.println("\nApellido modificado!");
+                            }
+                            case 3 ->{
+                                System.out.print("\nIngresa el número: ");
+                                cellNumber = Reader.sc.nextInt();
+                                Reader.sc.nextLine();
+                                System.out.println("\nModificando teléfono...");
+                                user.setCellNumber(cellNumber);
+                                System.out.println("\nTeléfono modificado!");
+                            }
+                            case 4 ->{
+                                ag = true;
+                                do {
+                                    System.out.print("\nIngresa la edad: ");
+                                    age = Reader.sc.nextInt();
+                                    Reader.sc.nextLine();
+                                    if(age<18) System.out.println("\nError. El usuario no puede ser menor de edad");
+                                    else{
+                                        System.out.println("\nModificando edad...");
+                                        user.setAge(age);
+                                        System.out.println("\nEdad modificada!");
+                                        ag = false;
+                                    }
+                                }while (ag);
+                            }
+                            case 5 ->{
+                                System.out.print("\nIngresa la dirección: ");
+                                address = Reader.sc.nextLine();
+                                System.out.println("\nModificando dirección...");
+                                user.setAddress(address);
+                                System.out.println("\nDirección modificada!");
+                            }
+                            case 6 ->{
+                                System.out.println("\nRegresando al menú principal...");
+                            }
+                            default -> System.out.println("Error. Selecciona una opción válida");
+                        }
+                    }while (op);
+                }
+                case 5 ->{
+                    op = true;
                     i = 1;
                     System.out.println("\t\nSelecciona el usuario a eliminar:\n");
-                    for (Users users2 : Library.getUsersList()){
-                        System.out.printf("\n%d) Nombre: %s %s", i, users2.getName(), users2.getLastName());
+                    for (Users users5 : Library.getUsersList()){
+                        System.out.printf("\n%d) Nombre: %s %s", i, users5.getName(), users5.getLastName());
                         i++;
                     }
                     do {
@@ -479,14 +564,14 @@ public class MenuLibrary {
                                 Library.getUsersList().remove(user);
                                 System.out.println("Usuario eliminado");
                                 op = false;
-                            }else if(r == 2){
+                            }else{
                                 System.out.println("Cancelando...");
                                 op = false;
                             }
                         } while (op);
                     }
                 }
-                case 5 ->{
+                case 6 ->{
                     System.out.println("\nRegresando al menú anterior...");
                     st = false;
                 }
