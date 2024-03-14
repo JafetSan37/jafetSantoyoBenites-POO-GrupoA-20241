@@ -6,14 +6,16 @@ public class SaleBooks {
     private String title;
     private String author;
     private int year;
+    private double price;
     private int inventory;
     private boolean available = true;
 
-    public SaleBooks(int ID, String title, String author, int year, int inventory) {
+    public SaleBooks(int ID, String title, String author, int year, int price, int inventory) {
         this.ID = ID;
         this.title = title;
         this.author = author;
         this.year = year;
+        this.price = price;
         this.inventory = inventory;
         this.available = available;
     }
@@ -57,6 +59,14 @@ public class SaleBooks {
 
     public void setInventory(int inventory) {
         this.inventory = inventory;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public boolean isAvailable() {

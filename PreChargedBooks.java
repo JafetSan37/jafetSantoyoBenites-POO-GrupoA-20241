@@ -25,17 +25,17 @@ public class PreChargedBooks {
         Library.addBook(book6);
         //Libros para Venta
         int h = number.nextInt(100000, 999999);
-        SaleBooks sellbook1 = new SaleBooks(h,"Cazadores de Sombras: Ciudad de Hueso","Cassandra Clare",2007,15);
+        SaleBooks sellbook1 = new SaleBooks(h,"Cazadores de Sombras: Ciudad de Hueso","Cassandra Clare",2017,328,15);
         int i = number.nextInt(100000, 999999);
-        SaleBooks sellbook2 = new SaleBooks(i,"Caballo de Troya 1: Jerusalén","J.J. Benítez",1987,5);
+        SaleBooks sellbook2 = new SaleBooks(i,"Caballo de Troya 1: Jerusalén","J.J. Benítez",2011,418,5);
         int j = number.nextInt(100000, 999999);
-        SaleBooks sellbook3 = new SaleBooks(j,"Amarse con los Ojos Abiertos","J.Bucay y S.Salinas",2002,12);
+        SaleBooks sellbook3 = new SaleBooks(j,"Amarse con los Ojos Abiertos","J.Bucay y S.Salinas",2019,345,12);
         int k = number.nextInt(100000, 999999);
-        SaleBooks sellbook4 = new SaleBooks(k, "Harry Potter: La Piedra Filosofal","J.K. Rowling",2001,10);
+        SaleBooks sellbook4 = new SaleBooks(k, "Harry Potter: La Piedra Filosofal","J.K. Rowling",2020,369,10);
         int l = number.nextInt(100000, 999999);
-        SaleBooks sellbook5 = new SaleBooks(l,"GOG","J.J. Benítez",2017,20);
+        SaleBooks sellbook5 = new SaleBooks(l,"GOG","J.J. Benítez",2022,158,20);
         int m = number.nextInt(100000, 999999);
-        SaleBooks sellbook6 = new SaleBooks(m,"Los Cuatro Acuerdos","Miguel Ruiz",2000,6);
+        SaleBooks sellbook6 = new SaleBooks(m,"Los Cuatro Acuerdos","Miguel Ruiz",2009,280,6);
         //Añadiendo a la librería sección ventas
         Library.addSellBook(sellbook1);
         Library.addSellBook(sellbook2);

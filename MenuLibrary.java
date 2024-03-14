@@ -34,10 +34,10 @@ public class MenuLibrary {
     public static void registerBook(){
         Random number = new Random();
         boolean flag = true;
-        int opc, year, id;
+        int opc, year, id, price, inventory;
         String title, author;
         do{
-            System.out.println("\nConfirmar:\n1) Sí\n2)No");
+            System.out.println("\nSección:\n1) Renta\n2) Venta\n3) Salir");
             System.out.print("\nOpción: ");
             opc = Reader.sc.nextInt();
             Reader.sc.nextLine();
@@ -50,7 +50,7 @@ public class MenuLibrary {
                     System.out.print("\nIngresa el año de publicación: ");
                     year = Reader.sc.nextInt();
                     Reader.sc.nextLine();
-                    System.out.println("\nRegistrando...");
+                    System.out.println("\nRegistrando libro para renta...");
                     id = number.nextInt();
                     Books book = new Books(id,title,author,year);
                     System.out.println("\nAñadiendo a biblioteca...");
@@ -59,6 +59,26 @@ public class MenuLibrary {
                     flag = false;
                 }
                 case 2 ->{
+                    System.out.print("\nIngresa el título: ");
+                    title = Reader.sc.nextLine();
+                    System.out.print("\nIngresa el autor: ");
+                    author = Reader.sc.nextLine();
+                    System.out.print("\nIngresa el año de publicación: ");
+                    year = Reader.sc.nextInt();
+                    Reader.sc.nextLine();
+                    System.out.print("\nIngresa el precio de venta: ");
+                    price = Reader.sc.nextInt();
+                    System.out.print("\nIngresa el inventario: ");
+                    inventory = Reader.sc.nextInt();
+                    System.out.println("\nRegistrando libro para venta...");
+                    id = number.nextInt();
+                    SaleBooks book = new SaleBooks(id,title,author,year,price,inventory);
+                    System.out.println("\nAñadiendo a biblioteca...");
+                    Library.addSellBook(book);
+                    System.out.println("\nLibro registrado!");
+                    flag = false;
+                }
+                case 3 ->{
                     System.out.println("\nRegresando al menú anterior...\n");
                     flag = false;
                 }
@@ -110,9 +130,11 @@ public class MenuLibrary {
     }
     public static void menuBooks(){
         boolean pt = true, op = true, st = true;
-        int opc,b,j,k,y,r,a;
+        int opc,b,j,k,y,r,a,year,inventory;
+        double price;
+        String title,author;
         do{
-            System.out.println("\nSelecciona la opción deseada:\n1) Consultar biblioteca (rentas)\n2) Consultar librería (ventas)\n3) Libros disponibles para renta\n4) Libros disponibles en venta\n5) Eliminar Libro\n6) Salir");
+            System.out.println("\nSelecciona la opción deseada:\n1) Consultar biblioteca (rentas)\n2) Consultar librería (ventas)\n3) Libros disponibles para renta\n4) Libros disponibles en venta\n5) Modificar Libro\n6) Eliminar Libro\n7) Salir");
             System.out.print("\nOpción: ");
             opc = Reader.sc.nextInt();
             Reader.sc.nextLine();
@@ -148,7 +170,7 @@ public class MenuLibrary {
                     }
                     for(SaleBooks book:Library.getBooksSell()){
                         if(book.isAvailable()){
-                            System.out.printf("\nID: %s\nTítulo: %s\nAutor: %s\nAño de Publicación: %d\n",book.getID(),book.getTitle(),book.getAuthor(),book.getYear());
+                            System.out.printf("\nID: %s\nTítulo: %s\nAutor: %s\nAño de Publicación: %d\nPrecio: %.2f\nInventario: %d",book.getID(),book.getTitle(),book.getAuthor(),book.getYear(),book.getPrice(),book.getInventory());
                             System.out.println("**************");
                         }else if(b==0) System.out.println("\nNo hay libros disponibles.");
                     }
@@ -161,9 +183,150 @@ public class MenuLibrary {
                         switch (a){
                             case 1 ->{
                                 j = 1;
+                                System.out.println("\t\nSelecciona el libro a modificar:\n");
+                                for (Books books : Library.getBooksList()){
+                                    System.out.printf("\n%d) ID: %s\n   Nombre: %s\n   Autor: %s",j,books.getID(),books.getTitle(),books.getAuthor());
+                                    j++;
+                                }
+                                do {
+                                    y = 0;
+                                    System.out.print("\nRespuesta: ");
+                                    y = Reader.sc.nextInt();
+                                    Reader.sc.nextLine();
+                                    y -= 1;
+                                    if (y > Library.getBooksList().size()) System.out.println("Error. Ingresa una opción válida.");
+                                    else op = false;
+                                } while (op);
+                                op = true;
+                                Books book = Library.getBooksList().get(y);
+                                do{
+                                    System.out.println("\t\nSelecciona el dato a modificar:\n");
+                                    System.out.printf("\n1) Título: %s\n2) Autor: %s\n3) Año de publicación: %d\n4) Salir",book.getTitle(),book.getAuthor(),book.getYear());
+                                    System.out.print("\nRespuesta: ");
+                                    r = Reader.sc.nextInt();
+                                    Reader.sc.nextLine();
+                                    switch (r){
+                                        case 1 ->{
+                                            System.out.print("\nIngresa el título: ");
+                                            title = Reader.sc.nextLine();
+                                            System.out.println("\nModificando título...");
+                                            book.setTitle(title);
+                                            System.out.println("\nTítulo modificado!");
+                                        }
+                                        case 2 ->{
+                                            System.out.print("\nIngresa el autor: ");
+                                            author = Reader.sc.nextLine();
+                                            System.out.println("\nModificando autor...");
+                                            book.setAuthor(author);
+                                            System.out.println("\nAutor modificado!");
+                                        }
+                                        case 3 ->{
+                                            System.out.print("\nIngresa el año de publicación: ");
+                                            year = Reader.sc.nextInt();
+                                            Reader.sc.nextLine();
+                                            System.out.println("\nModificando año...");
+                                            book.setYear(year);
+                                            System.out.println("\nAño de publicación modificado!");
+                                        }
+                                        case 4 ->{
+                                            System.out.println("\nRegresando al menú anterior...");
+                                            op = false;
+                                        }
+                                        default -> System.out.println("Error. Selecciona una opción válida");
+                                    }
+                                }while (op);
+                            }
+                            case 2 ->{
+                                k = 1;
+                                System.out.println("\t\nSelecciona el libro a modificar:\n");
+                                for (SaleBooks book : Library.getBooksSell()){
+                                    System.out.printf("\n%d) ID: %s\n   Título: %s\n   Autor: %s",k,book.getID(),book.getTitle(),book.getAuthor());
+                                    k++;
+                                }
+                                do {
+                                    y = 0;
+                                    System.out.print("\nRespuesta: ");
+                                    y = Reader.sc.nextInt();
+                                    Reader.sc.nextLine();
+                                    y -= 1;
+                                    if (y > Library.getBooksSell().size()) System.out.println("Error. Ingresa una opción válida.");
+                                    else op = false;
+                                } while (op);
+                                op = true;
+                                SaleBooks book = Library.getBooksSell().get(y);
+                                do{
+                                    System.out.println("\t\nSelecciona el dato a modificar:\n");
+                                    System.out.printf("\n1) Título: %s\n2) Autor: %s\n3) Año de publicación: %d\n4) Precio de venta: %.2f\n5) Inventario: %d\n6) Salir",book.getTitle(),book.getAuthor(),book.getYear(),book.getPrice(),book.getInventory());
+                                    System.out.print("\nRespuesta: ");
+                                    r = Reader.sc.nextInt();
+                                    Reader.sc.nextLine();
+                                    switch (r){
+                                        case 1 ->{
+                                            System.out.print("\nIngresa el título: ");
+                                            title = Reader.sc.nextLine();
+                                            System.out.println("\nModificando título...");
+                                            book.setTitle(title);
+                                            System.out.println("\nTítulo modificado!");
+                                        }
+                                        case 2 ->{
+                                            System.out.print("\nIngresa el autor: ");
+                                            author = Reader.sc.nextLine();
+                                            System.out.println("\nModificando autor...");
+                                            book.setAuthor(author);
+                                            System.out.println("\nAutor modificado!");
+                                        }
+                                        case 3 ->{
+                                            System.out.print("\nIngresa el año de publicación: ");
+                                            year = Reader.sc.nextInt();
+                                            Reader.sc.nextLine();
+                                            System.out.println("\nModificando año...");
+                                            book.setYear(year);
+                                            System.out.println("\nAño de publicación modificado!");
+                                        }
+                                        case 4 ->{
+                                            System.out.print("\nIngresa el precio de venta: ");
+                                            price = Reader.sc.nextDouble();
+                                            Reader.sc.nextLine();
+                                            System.out.println("\nModificando precio...");
+                                            book.setPrice(price);
+                                            System.out.println("\nPrecio de venta modificado!");
+                                        }
+                                        case 5 ->{
+                                            System.out.print("\nIngresa el nuevo inventario: ");
+                                            inventory = Reader.sc.nextInt();
+                                            Reader.sc.nextLine();
+                                            System.out.println("\nActualizando inventario...");
+                                            book.setInventory(inventory);
+                                            if(book.getInventory()==0)book.setAvailable(false);
+                                            System.out.println("\nInventario actualizado!");
+                                        }
+                                        case 6 ->{
+                                            System.out.println("\nRegresando al menú anterior...");
+                                            op = false;
+                                        }
+                                        default -> System.out.println("Error. Selecciona una opción válida");
+                                    }
+                                }while (op);
+                            }
+                            case 3 ->{
+                                System.out.println("\nRegresando al menú anterior...");
+                                st = false;
+                            }
+                            default -> System.out.println("Error. Selecciona una opción válida.");
+                        }
+                    }while(st);
+                }
+                case 6 ->{
+                    do{
+                        System.out.println("\n1) Libros para Renta\n2) Libros para Venta\n3) Salir");
+                        a = Reader.sc.nextInt();
+                        Reader.sc.nextLine();
+                        switch (a){
+                            case 1 ->{
+                                j = 1;
                                 System.out.println("\t\nSelecciona el libro a eliminar:\n");
                                 for (Books book : Library.getBooksList()){
-                                    System.out.printf("\n%d) ID: %s\n   Nombre: %s\n   Autor: %s",j,book.getID(),book.getTitle(),book.getAuthor());
+                                    System.out.printf("\n%d) ID: %s\n   Título: %s\n   Autor: %s",j,book.getID(),book.getTitle(),book.getAuthor());
                                     j++;
                                 }
                                 do {
@@ -199,7 +362,7 @@ public class MenuLibrary {
                                 k = 1;
                                 System.out.println("\t\nSelecciona el libro a eliminar:\n");
                                 for (SaleBooks book : Library.getBooksSell()){
-                                    System.out.printf("\n%d) ID: %s\n   Nombre: %s\n   Autor: %s",k,book.getID(),book.getTitle(),book.getAuthor());
+                                    System.out.printf("\n%d) ID: %s\n   Título: %s\n   Autor: %s",k,book.getID(),book.getTitle(),book.getAuthor());
                                     k++;
                                 }
                                 do {
@@ -239,7 +402,7 @@ public class MenuLibrary {
                         }
                     }while(st);
                 }
-                case 6 ->{
+                case 7 ->{
                     System.out.println("\nRegresando al menú anterior...");
                     pt = false;
                 }
@@ -251,7 +414,7 @@ public class MenuLibrary {
         boolean st = true, op = true;
         int opc,b,i,y,r;
         do{
-            System.out.println("\nSelecciona la opción deseada:\n1) Mostrar Usuarios Registrados\n2) Usuarios con renta de libros\n3) Usuarios con historial de compras\n4) Eliminar Usuario\n5) Salir");
+            System.out.println("\nSelecciona la opción deseada:\n1) Mostrar Usuarios Registrados\n2) Usuarios con renta de libros\n3) Usuarios con historial de compras\n4) Modificar Usuario\n5) Eliminar Usuario\n6) Salir");
             System.out.print("\nOpción: ");
             opc = Reader.sc.nextInt();
             Reader.sc.nextLine();
