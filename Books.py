@@ -5,30 +5,30 @@ class Books:
         self.author = author
         self.year = year
         self.rented = False
-    
-    def getID(self):
+
+    def get_ID(self):
         return self.ID
-    
-    def getTitle(self):
+
+    def get_title(self):
         return self.title
-    
-    def setTitle(self, title):
+
+    def set_title(self, title):
         self.title = title
-    
-    def getAuthor(self):
+
+    def get_author(self):
         return self.author
-    
-    def setAuthor(self, author):
+
+    def set_author(self, author):
         self.author = author
-    
-    def getYear(self):
+
+    def get_year(self):
         return self.year
-    
-    def setYear(self, year):
+
+    def set_year(self, year):
         self.year = year
-    
-    def isRented(self):
+
+    def is_rented(self):
         return self.rented
-    
-    def setRented(self, rented):
+
+    def set_rented(self, rented):
         self.rented = rented
