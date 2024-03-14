@@ -73,7 +73,7 @@ class MenuLibrary:
             else:
                 print("Error. Elige una opción válida.")
 
-    @staticmethod
+
     def registerUser():
         number = random.Random()
         sig = True
@@ -113,220 +113,257 @@ class MenuLibrary:
                 sig = False
             else:
                 print("Error. Elige una opción válida.")
-def menuBooks():
-    pt = True
-    op = True
-    st = True
-    opc = 0
-    b = 0
-    j = 0
-    k = 0
-    y = 0
-    r = 0
-    a = 0
-    year = 0
-    inventory = 0
-    price = 0.0
-    title = ""
-    author = ""
-    
-    while pt:
-        print("\nSelecciona la opción deseada:\n1) Consultar biblioteca (rentas)\n2) Consultar librería (ventas)\n3) Libros disponibles para renta\n4) Libros disponibles en venta\n5) Modificar Libro\n6) Eliminar Libro\n7) Salir")
-        opc = int(input("\nOpción: "))
-        input()
-        
-        if opc == 1:
-            for book in Library.getBooksList():
-                print("\nID: {}\nTítulo: {}\nAutor: {}\nAño de Publicación: {}".format(book.getID(), book.getTitle(), book.getAuthor(), book.getYear()))
-                print("**************")
-        
-        elif opc == 2:
-            for book in Library.getBooksSell():
-                print("\nID: {}\nTítulo: {}\nAutor: {}\nAño de Publicación: {}\nPrecio: {:.2f}".format(book.getID(), book.getTitle(), book.getAuthor(), book.getYear(), book.getPrice()))
-                print("**************")
-        
-        elif opc == 3:
-            b = 0
-            for books in Library.getBooksList():
-                if books.isRented():
-                    b += 1
-            for book in Library.getBooksList():
-                if not book.isRented():
+    @staticmethod
+    def menuBooks():
+        pt = True
+        op = True
+        st = True
+        opc = 0
+        b = 0
+        j = 0
+        k = 0
+        y = 0
+        r = 0
+        a = 0
+        year = 0
+        inventory = 0
+        price = 0.0
+        title = ""
+        author = ""
+
+        while pt:
+            print("\nSelecciona la opción deseada:\n1) Consultar biblioteca (rentas)\n2) Consultar librería (ventas)\n3) Libros disponibles para renta\n4) Libros disponibles en venta\n5) Modificar Libro\n6) Eliminar Libro\n7) Salir")
+            opc = int(input("\nOpción: "))
+            input()
+
+            if opc == 1:
+                for book in Library.getBooksList():
                     print("\nID: {}\nTítulo: {}\nAutor: {}\nAño de Publicación: {}".format(book.getID(), book.getTitle(), book.getAuthor(), book.getYear()))
                     print("**************")
-                elif b == 0:
-                    print("\nNo hay libros disponibles.")
-        
-        elif opc == 4:
-            b = 0
-            for books in Library.getBooksSell():
-                if books.isAvailable():
-                    b += 1
-            for book in Library.getBooksSell():
-                if book.isAvailable():
-                    print("\nID: {}\nTítulo: {}\nAutor: {}\nAño de Publicación: {}\nPrecio: {:.2f}\nInventario: {}".format(book.getID(), book.getTitle(), book.getAuthor(), book.getYear(), book.getPrice(), book.getInventory()))
+
+            elif opc == 2:
+                for book in Library.getBooksSell():
+                    print("\nID: {}\nTítulo: {}\nAutor: {}\nAño de Publicación: {}\nPrecio: {:.2f}".format(book.getID(), book.getTitle(), book.getAuthor(), book.getYear(), book.getPrice()))
                     print("**************")
-                elif b == 0:
-                    print("\nNo hay libros disponibles.")
-        
-        elif opc == 5:
-            st = True
-            while st:
-                print("\n1) Libros para Renta\n2) Libros para Venta\n3) Salir")
-                a = int(input())
-                input()
-                
-                if a == 1:
-                    op = True
-                    j = 1
-                    print("\t\nSelecciona el libro a modificar:\n")
-                    for books in Library.getBooksList():
-                        print("\n{} ID: {}\n   Nombre: {}\n   Autor: {}".format(j, books.getID(), books.getTitle(), books.getAuthor()))
-                        j += 1
-                    while op:
-                        y = 0
-                        print("\nRespuesta: ", end="")
-                        y = int(input())
-                        input()
-                        y -= 1
-                        if y > len(Library.getBooksList()):
-                            print("Error. Ingresa una opción válida.")
-                        else:
-                            op = False
-                    op = True
-                    book = Library.getBooksList()[y]
-                    while op:
-                        print("\t\nSelecciona el dato a modificar:\n")
-                        print("\n1) Título: {}\n2) Autor: {}\n3) Año de publicación: {}\n4) Salir".format(book.getTitle(), book.getAuthor(), book.getYear()))
-                        print("\nRespuesta: ", end="")
-                        r = int(input())
-                        input()
-                        if r == 1:
-                            print("\nIngresa el título: ", end="")
-                            title = input()
-                            print("\nModificando título...")
-                            book.setTitle(title)
-                            print("\nTítulo modificado!")
-                        elif r == 2:
-                            print("\nIngresa el autor: ", end="")
-                            author = input()
-                            print("\nModificando autor...")
-                            book.setAuthor(author)
-                            print("\nAutor modificado!")
-                        elif r == 3:
-                            print("\nIngresa el año de publicación: ", end="")
-                            year = int(input())
+
+            elif opc == 3:
+                b = 0
+                for books in Library.getBooksList():
+                    if books.isRented():
+                        b += 1
+                for book in Library.getBooksList():
+                    if not book.isRented():
+                        print("\nID: {}\nTítulo: {}\nAutor: {}\nAño de Publicación: {}".format(book.getID(), book.getTitle(), book.getAuthor(), book.getYear()))
+                        print("**************")
+                    elif b == 0:
+                        print("\nNo hay libros disponibles.")
+
+            elif opc == 4:
+                b = 0
+                for books in Library.getBooksSell():
+                    if books.isAvailable():
+                        b += 1
+                for book in Library.getBooksSell():
+                    if book.isAvailable():
+                        print("\nID: {}\nTítulo: {}\nAutor: {}\nAño de Publicación: {}\nPrecio: {:.2f}\nInventario: {}".format(book.getID(), book.getTitle(), book.getAuthor(), book.getYear(), book.getPrice(), book.getInventory()))
+                        print("**************")
+                    elif b == 0:
+                        print("\nNo hay libros disponibles.")
+
+            elif opc == 5:
+                st = True
+                while st:
+                    print("\n1) Libros para Renta\n2) Libros para Venta\n3) Salir")
+                    a = int(input())
+                    input()
+
+                    if a == 1:
+                        op = True
+                        j = 1
+                        print("\t\nSelecciona el libro a modificar:\n")
+                        for books in Library.getBooksList():
+                            print("\n{} ID: {}\n   Nombre: {}\n   Autor: {}".format(j, books.getID(), books.getTitle(), books.getAuthor()))
+                            j += 1
+                        while op:
+                            y = 0
+                            print("\nRespuesta: ", end="")
+                            y = int(input())
                             input()
-                            print("\nModificando año...")
-                            book.setYear(year)
-                            print("\nAño de publicación modificado!")
-                        elif r == 4:
-                            print("\nRegresando al menú anterior...")
-                            op = False
-                        else:
-                            print("Error. Selecciona una opción válida")
-                
-                elif a == 2:
-                    op = True
-                    k = 1
-                    print("\t\nSelecciona el libro a modificar:\n")
-                    for book in Library.getBooksSell():
-                        print("\n{} ID: {}\n   Título: {}\n   Autor: {}".format(k, book.getID(), book.getTitle(), book.getAuthor()))
-                        k += 1
-                    while op:
-                        y = 0
-                        print("\nRespuesta: ", end="")
-                        y = int(input())
-                        input()
-                        y -= 1
-                        if y > len(Library.getBooksSell()):
-                            print("Error. Ingresa una opción válida.")
-                        else:
-                            op = False
-                    op = True
-                    book = Library.getBooksSell()[y]
-                    while op:
-                        print("\t\nSelecciona el dato a modificar:\n")
-                        print("\n1) Título: {}\n2) Autor: {}\n3) Año de publicación: {}\n4) Precio de venta: {:.2f}\n5) Inventario: {}\n6) Salir".format(book.getTitle(), book.getAuthor(), book.getYear(), book.getPrice(), book.getInventory()))
-                        print("\nRespuesta: ", end="")
-                        r = int(input())
-                        input()
-                        if r == 1:
-                            print("\nIngresa el título: ", end="")
-                            title = input()
-                            print("\nModificando título...")
-                            book.setTitle(title)
-                            print("\nTítulo modificado!")
-                        elif r == 2:
-                            print("\nIngresa el autor: ", end="")
-                            author = input()
-                            print("\nModificando autor...")
-                            book.setAuthor(author)
-                            print("\nAutor modificado!")
-                        elif r == 3:
-                            print("\nIngresa el año de publicación: ", end="")
-                            year = int(input())
+                            y -= 1
+                            if y > len(Library.getBooksList()):
+                                print("Error. Ingresa una opción válida.")
+                            else:
+                                op = False
+                        op = True
+                        book = Library.getBooksList()[y]
+                        while op:
+                            print("\t\nSelecciona el dato a modificar:\n")
+                            print("\n1) Título: {}\n2) Autor: {}\n3) Año de publicación: {}\n4) Salir".format(book.getTitle(), book.getAuthor(), book.getYear()))
+                            print("\nRespuesta: ", end="")
+                            r = int(input())
                             input()
-                            print("\nModificando año...")
-                            book.setYear(year)
-                            print("\nAño de publicación modificado!")
-                        elif r == 4:
-                            print("\nIngresa el precio de venta: ", end="")
-                            price = float(input())
+                            if r == 1:
+                                print("\nIngresa el título: ", end="")
+                                title = input()
+                                print("\nModificando título...")
+                                book.setTitle(title)
+                                print("\nTítulo modificado!")
+                            elif r == 2:
+                                print("\nIngresa el autor: ", end="")
+                                author = input()
+                                print("\nModificando autor...")
+                                book.setAuthor(author)
+                                print("\nAutor modificado!")
+                            elif r == 3:
+                                print("\nIngresa el año de publicación: ", end="")
+                                year = int(input())
+                                input()
+                                print("\nModificando año...")
+                                book.setYear(year)
+                                print("\nAño de publicación modificado!")
+                            elif r == 4:
+                                print("\nRegresando al menú anterior...")
+                                op = False
+                            else:
+                                print("Error. Selecciona una opción válida")
+
+                    elif a == 2:
+                        op = True
+                        k = 1
+                        print("\t\nSelecciona el libro a modificar:\n")
+                        for book in Library.getBooksSell():
+                            print("\n{} ID: {}\n   Título: {}\n   Autor: {}".format(k, book.getID(), book.getTitle(), book.getAuthor()))
+                            k += 1
+                        while op:
+                            y = 0
+                            print("\nRespuesta: ", end="")
+                            y = int(input())
                             input()
-                            print("\nModificando precio...")
-                            book.setPrice(price)
-                            print("\nPrecio de venta modificado!")
-                        elif r == 5:
-                            print("\nIngresa el nuevo inventario: ", end="")
-                            inventory = int(input())
+                            y -= 1
+                            if y > len(Library.getBooksSell()):
+                                print("Error. Ingresa una opción válida.")
+                            else:
+                                op = False
+                        op = True
+                        book = Library.getBooksSell()[y]
+                        while op:
+                            print("\t\nSelecciona el dato a modificar:\n")
+                            print("\n1) Título: {}\n2) Autor: {}\n3) Año de publicación: {}\n4) Precio de venta: {:.2f}\n5) Inventario: {}\n6) Salir".format(book.getTitle(), book.getAuthor(), book.getYear(), book.getPrice(), book.getInventory()))
+                            print("\nRespuesta: ", end="")
+                            r = int(input())
                             input()
-                            print("\nActualizando inventario...")
-                            book.setInventory(inventory)
-                            if book.getInventory() == 0:
-                                book.setAvailable(False)
-                            print("\nInventario actualizado!")
-                        elif r == 6:
-                            print("\nRegresando al menú anterior...")
-                            op = False
-                        else:
-                            print("Error. Selecciona una opción válida")
-                
-                elif a == 3:
-                    print("\nRegresando al menú anterior...")
-                    st = False
-                else:
-                    print("Error. Selecciona una opción válida.")
-        
-        elif opc == 6:
-            st = True
-            while st:
-                print("\n1) Libros para Renta\n2) Libros para Venta\n3) Salir")
-                a = int(input())
-                input()
-                
-                if a == 1:
-                    op = True
-                    j = 1
-                    print("\t\nSelecciona el libro a eliminar:\n")
-                    for book in Library.getBooksList():
-                        print("\n{} ID: {}\n   Título: {}\n   Autor: {}".format(j, book.getID(), book.getTitle(), book.getAuthor()))
-                        j += 1
-                    while op:
-                        y = 0
-                        print("\nRespuesta: ", end="")
-                        y = int(input())
-                        input()
-                        y -= 1
-                        if y > len(Library.getBooksList()):
-                            print("Error. Ingresa una opción válida.")
-                        else:
-                            op = False
-                    book = Library.getBooksList()[y]
-                    if book.isRented():
-                        print("Error. El libro fue rentado por un usuario. Favor de retornar el libro antes de borrarlo.")
+                            if r == 1:
+                                print("\nIngresa el título: ", end="")
+                                title = input()
+                                print("\nModificando título...")
+                                book.setTitle(title)
+                                print("\nTítulo modificado!")
+                            elif r == 2:
+                                print("\nIngresa el autor: ", end="")
+                                author = input()
+                                print("\nModificando autor...")
+                                book.setAuthor(author)
+                                print("\nAutor modificado!")
+                            elif r == 3:
+                                print("\nIngresa el año de publicación: ", end="")
+                                year = int(input())
+                                input()
+                                print("\nModificando año...")
+                                book.setYear(year)
+                                print("\nAño de publicación modificado!")
+                            elif r == 4:
+                                print("\nIngresa el precio de venta: ", end="")
+                                price = float(input())
+                                input()
+                                print("\nModificando precio...")
+                                book.setPrice(price)
+                                print("\nPrecio de venta modificado!")
+                            elif r == 5:
+                                print("\nIngresa el nuevo inventario: ", end="")
+                                inventory = int(input())
+                                input()
+                                print("\nActualizando inventario...")
+                                book.setInventory(inventory)
+                                if book.getInventory() == 0:
+                                    book.setAvailable(False)
+                                print("\nInventario actualizado!")
+                            elif r == 6:
+                                print("\nRegresando al menú anterior...")
+                                op = False
+                            else:
+                                print("Error. Selecciona una opción válida")
+
+                    elif a == 3:
+                        print("\nRegresando al menú anterior...")
+                        st = False
                     else:
-                        print("\nSeguro/a que deseas eliminar este libro?\n1) Sí\n2) No")
+                        print("Error. Selecciona una opción válida.")
+
+            elif opc == 6:
+                st = True
+                while st:
+                    print("\n1) Libros para Renta\n2) Libros para Venta\n3) Salir")
+                    a = int(input())
+                    input()
+
+                    if a == 1:
+                        op = True
+                        j = 1
+                        print("\t\nSelecciona el libro a eliminar:\n")
+                        for book in Library.getBooksList():
+                            print("\n{} ID: {}\n   Título: {}\n   Autor: {}".format(j, book.getID(), book.getTitle(), book.getAuthor()))
+                            j += 1
+                        while op:
+                            y = 0
+                            print("\nRespuesta: ", end="")
+                            y = int(input())
+                            input()
+                            y -= 1
+                            if y > len(Library.getBooksList()):
+                                print("Error. Ingresa una opción válida.")
+                            else:
+                                op = False
+                        book = Library.getBooksList()[y]
+                        if book.isRented():
+                            print("Error. El libro fue rentado por un usuario. Favor de retornar el libro antes de borrarlo.")
+                        else:
+                            print("\nSeguro/a que deseas eliminar este libro?\n1) Sí\n2) No")
+                            op = True
+                            while op:
+                                r = 0
+                                print("\nRespuesta: ", end="")
+                                r = int(input())
+                                input()
+                                if r != 1 and r != 2:
+                                    print("Error. Selecciona una opción válida.")
+                                elif r == 1:
+                                    print("Eliminando...")
+                                    Library.getBooksList().remove(book)
+                                    print("Libro para renta eliminado")
+                                    op = False
+                                elif r == 2:
+                                    print("Cancelando...")
+                                    op = False
+
+                    elif a == 2:
+                        op = True
+                        k = 1
+                        print("\t\nSelecciona el libro a eliminar:\n")
+                        for book in Library.getBooksSell():
+                            print("\n{} ID: {}\n   Título: {}\n   Autor: {}".format(k, book.getID(), book.getTitle(), book.getAuthor()))
+                            k += 1
+                        while op:
+                            y = 0
+                            print("\nRespuesta: ", end="")
+                            y = int(input())
+                            input()
+                            y -= 1
+                            if y > len(Library.getBooksSell()):
+                                print("Error. Ingresa una opción válida.")
+                            else:
+                                op = False
+                        book = Library.getBooksSell()[y]
+                        print("\nSeguro/a que deseas eliminar este libro del inventario?\n1) Sí\n2) No")
                         op = True
                         while op:
                             r = 0
@@ -337,60 +374,24 @@ def menuBooks():
                                 print("Error. Selecciona una opción válida.")
                             elif r == 1:
                                 print("Eliminando...")
-                                Library.getBooksList().remove(book)
-                                print("Libro para renta eliminado")
+                                Library.getBooksSell().remove(book)
+                                print("Libro eliminado del inventario")
                                 op = False
                             elif r == 2:
                                 print("Cancelando...")
                                 op = False
-                
-                elif a == 2:
-                    op = True
-                    k = 1
-                    print("\t\nSelecciona el libro a eliminar:\n")
-                    for book in Library.getBooksSell():
-                        print("\n{} ID: {}\n   Título: {}\n   Autor: {}".format(k, book.getID(), book.getTitle(), book.getAuthor()))
-                        k += 1
-                    while op:
-                        y = 0
-                        print("\nRespuesta: ", end="")
-                        y = int(input())
-                        input()
-                        y -= 1
-                        if y > len(Library.getBooksSell()):
-                            print("Error. Ingresa una opción válida.")
-                        else:
-                            op = False
-                    book = Library.getBooksSell()[y]
-                    print("\nSeguro/a que deseas eliminar este libro del inventario?\n1) Sí\n2) No")
-                    op = True
-                    while op:
-                        r = 0
-                        print("\nRespuesta: ", end="")
-                        r = int(input())
-                        input()
-                        if r != 1 and r != 2:
-                            print("Error. Selecciona una opción válida.")
-                        elif r == 1:
-                            print("Eliminando...")
-                            Library.getBooksSell().remove(book)
-                            print("Libro eliminado del inventario")
-                            op = False
-                        elif r == 2:
-                            print("Cancelando...")
-                            op = False
-                
-                elif a == 3:
-                    print("\nRegresando al menú anterior...")
-                    st = False
-                else:
-                    print("Error. Selecciona una opción válida.")
-        
-        elif opc == 7:
-            print("\nRegresando al menú anterior...")
-            pt = False
-        else:
-            print("Error. Selecciona una opción válida.")
+
+                    elif a == 3:
+                        print("\nRegresando al menú anterior...")
+                        st = False
+                    else:
+                        print("Error. Selecciona una opción válida.")
+
+            elif opc == 7:
+                print("\nRegresando al menú anterior...")
+                pt = False
+            else:
+                print("Error. Selecciona una opción válida.")
 def menuUsers():
     st = True
     op = True
