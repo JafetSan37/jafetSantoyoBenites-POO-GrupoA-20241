@@ -1,7 +1,4 @@
-import java.util.Random;
-
 public class SaleBooks {
-    Random number = new Random();
     private int ID;
     private String title;
     private String author;
@@ -10,7 +7,7 @@ public class SaleBooks {
     private int inventory;
     private boolean available;
     //Método Constructor de la clase.
-    public SaleBooks(int ID, String title, String author, int year, int price, int inventory) {
+    public SaleBooks(int ID, String title, String author, int year, double price, int inventory) {
         this.ID = ID;
         this.title = title;
         this.author = author;
@@ -23,10 +20,7 @@ public class SaleBooks {
     public int getID() {
         return ID;
     }
-    public void setID(int ID) {
-        ID = number.nextInt(10000000,99999999);
-        this.ID = ID;
-    }
+
     public String getTitle() {
         return title;
     }

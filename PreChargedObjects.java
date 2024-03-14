@@ -2,8 +2,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class PreChargedObjects {
-    static Random number = new Random();
-    public static void addElements(){
+    Library library = new Library();
+    Random number = new Random();
+    public void addElements(){
         //Libros para Renta
         int a,b,c,d,e,f;
         a = number.nextInt(100000, 999999);
@@ -25,12 +26,12 @@ public class PreChargedObjects {
         Books book6 = new Books(f,"Los Cuatro Acuerdos","Miguel Ruiz",2000);
         book6.setRented(false);
         //Añadiendo los libros a la librería
-        Library.addBook(book1);
-        Library.addBook(book2);
-        Library.addBook(book3);
-        Library.addBook(book4);
-        Library.addBook(book5);
-        Library.addBook(book6);
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+        library.addBook(book4);
+        library.addBook(book5);
+        library.addBook(book6);
         //Libros para Venta
         int h,i,j,k,l,m;
         h = number.nextInt(100000, 999999);
@@ -52,12 +53,12 @@ public class PreChargedObjects {
         SaleBooks sellbook6 = new SaleBooks(m,"Los Cuatro Acuerdos","Miguel Ruiz",2009,280,6);
         sellbook6.setAvailable(true);
         //Añadiendo a la librería sección ventas
-        Library.addSellBook(sellbook1);
-        Library.addSellBook(sellbook2);
-        Library.addSellBook(sellbook3);
-        Library.addSellBook(sellbook4);
-        Library.addSellBook(sellbook5);
-        Library.addSellBook(sellbook6);
+        library.addSellBook(sellbook1);
+        library.addSellBook(sellbook2);
+        library.addSellBook(sellbook3);
+        library.addSellBook(sellbook4);
+        library.addSellBook(sellbook5);
+        library.addSellBook(sellbook6);
         //Usuarios pre-registrados
         int q,w,u,r,t,y;
         q = number.nextInt(100000, 999999);
@@ -97,11 +98,11 @@ public class PreChargedObjects {
         user6.setRentedBooks(bookRent5);
         user6.setSoldBooks(bookSale5);
         //Añadiendo usuarios a la lista de la librería
-        Library.addUser(user1);
-        Library.addUser(user2);
-        Library.addUser(user3);
-        Library.addUser(user4);
-        Library.addUser(user5);
-        Library.addUser(user6);
+        library.addUser(user1);
+        library.addUser(user2);
+        library.addUser(user3);
+        library.addUser(user4);
+        library.addUser(user5);
+        library.addUser(user6);
     }
 }

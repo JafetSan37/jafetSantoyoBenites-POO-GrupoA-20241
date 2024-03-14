@@ -4,7 +4,6 @@ public class Books {
     private String author;
     private int year;
     private boolean rented;
-
     public Books(int ID, String title, String author, int year) {
         this.ID = ID;
         this.title = title;
