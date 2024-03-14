@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args){
-        //PreChargedBooks.addElements();
+        PreChargedObjects.addElements();
         boolean flag = true;
         int opc;
         System.out.println("\t\nBienvenido!");

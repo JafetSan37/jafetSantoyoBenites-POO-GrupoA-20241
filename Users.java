@@ -4,13 +4,13 @@ public class Users {
     private int IDuser;
     private String name;
     private String lastName;
-    private long cellNumber;
+    private int cellNumber;
     private int age;
     private String address;
     private ArrayList<Books> rentedBooks = new ArrayList<>();
     private ArrayList<SaleBooks> soldBooks = new ArrayList<>();
     //Método Constructor de la clase.
-    public Users(int IDuser, String name, String lastName, long cellNumber, int age, String address) {
+    public Users(int IDuser, String name, String lastName, int cellNumber, int age, String address) {
         this.IDuser = IDuser;
         this.name = name;
         this.lastName = lastName;
@@ -43,7 +43,7 @@ public class Users {
     public long getCellNumber() {
         return cellNumber;
     }
-    public void setCellNumber(long cellNumber) {
+    public void setCellNumber(int cellNumber) {
         this.cellNumber = cellNumber;
     }
     public String getAddress() {

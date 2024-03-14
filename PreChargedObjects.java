@@ -1,6 +1,7 @@
+import java.util.ArrayList;
 import java.util.Random;
 
-public class PreChargedBooks {
+public class PreChargedObjects {
     static Random number = new Random();
     public static void addElements(){
         //Libros para Renta
@@ -48,8 +49,47 @@ public class PreChargedBooks {
         //Usuarios pre-registrados
         int q,w,u,r,t,y;
         q = number.nextInt(100000, 999999);
-        
+        Users user1 = new Users(q,"Jafet","Santoyo",512323457,27,"Calle Ezequiel #78");
+        ArrayList<Books> bookRent = new ArrayList<>();
+        ArrayList<SaleBooks> bookSale = new ArrayList<>();
+        user1.setRentedBooks(bookRent);
+        user1.setSoldBooks(bookSale);
+        w = number.nextInt(100000, 999999);
+        Users user2 = new Users(w,"Fátima","Rivera",512323457,24,"Calle Fco. Rincón #56");
+        ArrayList<Books> bookRent1 = new ArrayList<>();
+        ArrayList<SaleBooks> bookSale1 = new ArrayList<>();
+        user2.setRentedBooks(bookRent1);
+        user2.setSoldBooks(bookSale1);
+        u = number.nextInt(100000, 999999);
+        Users user3 = new Users(u,"Andrés","Benites",512323457,21,"Calle Ezequiel #78");
+        ArrayList<Books> bookRent2 = new ArrayList<>();
+        ArrayList<SaleBooks> bookSale2 = new ArrayList<>();
+        user3.setRentedBooks(bookRent2);
+        user3.setSoldBooks(bookSale2);
+        r = number.nextInt(100000, 999999);
+        Users user4 = new Users(r,"Andrea","Durán",512323457,27,"Calle El Porvenir #39");
+        ArrayList<Books> bookRent3 = new ArrayList<>();
+        ArrayList<SaleBooks> bookSale3 = new ArrayList<>();
+        user4.setRentedBooks(bookRent3);
+        user4.setSoldBooks(bookSale3);
+        t = number.nextInt(100000, 999999);
+        Users user5 = new Users(t,"Alejandro","Montejano",512323457,24,"Calle Del Río #10");
+        ArrayList<Books> bookRent4 = new ArrayList<>();
+        ArrayList<SaleBooks> bookSale4 = new ArrayList<>();
+        user5.setRentedBooks(bookRent4);
+        user5.setSoldBooks(bookSale4);
+        y = number.nextInt(100000, 999999);
+        Users user6 = new Users(y,"Atziri","Mancilla",512323457,28,"Calle Hacienda Azul #63");
+        ArrayList<Books> bookRent5 = new ArrayList<>();
+        ArrayList<SaleBooks> bookSale5 = new ArrayList<>();
+        user6.setRentedBooks(bookRent5);
+        user6.setSoldBooks(bookSale5);
         //Añadiendo usuarios a la lista de la librería
-
+        Library.addUser(user1);
+        Library.addUser(user2);
+        Library.addUser(user3);
+        Library.addUser(user4);
+        Library.addUser(user5);
+        Library.addUser(user6);
     }
 }
