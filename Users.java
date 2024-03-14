@@ -4,15 +4,17 @@ public class Users {
     private int IDuser;
     private String name;
     private String lastName;
+    private int cellNumber;
     private int age;
     private String address;
     private ArrayList<Books> rentedBooks = new ArrayList<>();
     private ArrayList<SaleBooks> soldBooks = new ArrayList<>();
 
-    public Users(int IDuser, String name, String lastName, int age, String address) {
+    public Users(int IDuser, String name, String lastName, int cellNumber, int age, String address) {
         this.IDuser = IDuser;
         this.name = name;
         this.lastName = lastName;
+        this.cellNumber = cellNumber;
         this.age = age;
         this.address = address;
     }
@@ -43,6 +45,14 @@ public class Users {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public int getCellNumber() {
+        return cellNumber;
+    }
+
+    public void setCellNumber(int cellNumber) {
+        this.cellNumber = cellNumber;
     }
 
     public String getAddress() {
