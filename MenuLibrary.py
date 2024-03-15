@@ -13,15 +13,20 @@ class MenuLibrary:
         while flag:
             print("\nSelecciona una opción:\n1) Registrar Libro\n2) Registrar Usuario\n3) Libros\n4) Usuarios\n5) Salir")
             x = int(input("\nOpción: "))
-            switcher = {
-                1: self.register_book,
-                2: self.register_user,
-                3: self.menu_books,
-                4: self.menu_users,
-                5: lambda: print("\nRegresando al menú principal...") or setattr(flag, False)
-            }
-            func = switcher.get(x, lambda: print("Error. Selecciona una opción válida."))
-            func()
+            
+            if x == 1:
+                self.register_book()
+            elif x == 2:
+                self.register_user()
+            elif x == 3:
+                self.menu_books()
+            elif x == 4:
+                self.menu_users()
+            elif x == 5:
+                print("\nRegresando al menú principal...")
+                flag = False
+            else:
+                print("Error. Selecciona una opción válida.")
 
     def register_book(self):
         number = random.Random()
@@ -75,13 +80,9 @@ class MenuLibrary:
                 if age < 18:
                     print("Error. El usuario es menor de edad.\nRegresando al menú...")
                 else:
-                    print("\nRegistrando usuario..")
+                    print("\nRegistrando usuario...")
                     id_user = number.randint(100000, 999999)
                     user = Users(id_user, name, last_name, age, cell_number, address)
-                    rented_books = []
-                    user.set_rented_books(rented_books)
-                    sold_books = []
-                    user.set_sold_books(sold_books)
                     print("\nAñadiendo a base de datos...")
                     self.library.add_user(user)
                     print("\nUsuario registrado!")
@@ -331,47 +332,47 @@ class MenuLibrary:
                 b = 1
                 counter = 0
                 for users in self.library.get_users():
-                    if not users.get_rentedBooks():
+                    if len(users.get_rentedBooks()) > 0:
                         print(f"\n{b}) Nombre: {users.get_name()}\n   Apellidos: {users.get_lastName()}\n   Edad: {users.get_age()}\n   Libros rentados: {len(users.get_rentedBooks())}")
                         print("****************")
                         b += 1
                     else:
                         counter += 1
-                        if counter == len(self.library.get_users_list()):
+                        if counter == len(self.library.get_users()):
                             print("\nNo hay usuarios con rentas existentes")
             elif opc == 3:
                 b = 1
                 counter = 0
-                for users1 in self.library.get_users_list():
-                    if not users1.get_sold_books():
+                for users1 in self.library.get_users():
+                    if len(users1.get_soldBooks()) > 0:
                         print(f"\n{b}) Nombre: {users1.get_name()}\n   Apellidos: {users1.get_last_name()}\n   Edad: {users1.get_age()}\n   Libros comprados: {len(users1.get_sold_books())}")
                         print("****************")
                         b += 1
                     else:
                         counter += 1
-                        if counter == len(self.library.get_users_list()):
+                        if counter == len(self.library.get_users()):
                             print("\nNo existen usuarios con compras efectuadas")
             elif opc == 4:
                 op = True
                 i = 1
                 print("\t\nSelecciona el usuario a modificar:\n")
-                for users4 in self.library.get_users_list():
-                    print(f"\n{i}) Nombre: {users4.get_name()} {users4.get_last_name()}")
+                for users4 in self.library.get_users():
+                    print(f"{i}) Nombre: {users4.get_name()} {users4.get_lastName()}")
                     i += 1
                 y = 0
                 while op:
                     print("\nRespuesta: ", end="")
                     y = int(input())
                     y -= 1
-                    if y > len(self.library.get_users_list()):
+                    if y > len(self.library.get_users()):
                         print("Error. Ingresa una opción válida.")
                     else:
                         op = False
                 op = True
-                user = self.library.get_users_list()[y]
+                user = self.library.get_users()[y]
                 while op:
                     print("\t\nSelecciona el dato a modificar:\n")
-                    print(f"\n1) Nombre: {user.get_name()}\n2) Apellidos: {user.get_last_name()}\n3) Teléfono: {user.get_cell_number()}\n4) Edad: {user.get_age()}\n5) Dirección: {user.get_address()}\n6) Salir")
+                    print(f"\n1) Nombre: {user.get_name()}\n2) Apellidos: {user.get_lastName()}\n3) Teléfono: {user.get_cellNumber()}\n4) Edad: {user.get_age()}\n5) Dirección: {user.get_address()}\n6) Salir")
                     print("Respuesta: ", end="")
                     r = int(input())
                     if r == 1:
@@ -382,12 +383,12 @@ class MenuLibrary:
                     elif r == 2:
                         last_name = input("\nIngresa el apellido: ")
                         print("\nModificando apellido...")
-                        user.set_last_name(last_name)
+                        user.set_lastName(last_name)
                         print("\nApellido modificado!")
                     elif r == 3:
                         cell_number = int(input("\nIngresa el número: "))
                         print("\nModificando teléfono...")
-                        user.set_cell_number(cell_number)
+                        user.set_cellNumber(cell_number)
                         print("\nTeléfono modificado!")
                     elif r == 4:
                         ag = True
@@ -414,21 +415,21 @@ class MenuLibrary:
                 op = True
                 i = 1
                 print("\t\nSelecciona el usuario a eliminar:\n")
-                for users5 in self.library.get_users_list():
-                    print(f"\n{i}) Nombre: {users5.get_name()} {users5.get_last_name()}")
+                for users5 in self.library.get_users():
+                    print(f"{i}) Nombre: {users5.get_name()} {users5.get_lastName()}")
                     i += 1
                 y = 0
                 while op:
                     print("\nRespuesta: ", end="")
                     y = int(input())
                     y -= 1
-                    if y > len(self.library.get_users_list()):
+                    if y > len(self.library.get_users()):
                         print("Error. Ingresa una opción válida.")
                     else:
                         op = False
-                user = self.library.get_users_list()[y]
-                if not user.get_rented_books():
-                    print(f"\nSeguro/a que deseas eliminar a {user.get_name()} {user.get_last_name()}?\n1) Sí\n2) No")
+                user = self.library.get_users()[y]
+                if len(user.get_rentedBooks()) == 0:
+                    print(f"\nSeguro/a que deseas eliminar a {user.get_name()} {user.get_lastName()}?\n1) Sí\n2) No")
                     op = True
                     while op:
                         r = 0
@@ -437,12 +438,12 @@ class MenuLibrary:
                         if r != 1 and r != 2:
                             print("Error. Selecciona una opción válida.")
                         elif r == 1:
-                            print("Eliminando...")
-                            self.library.get_users_list().remove(user)
+                            print("\nEliminando...")
+                            self.library.get_users().remove(user)
                             print("Usuario eliminado")
                             op = False
                         else:
-                            print("Cancelando...")
+                            print("\nCancelando...")
                             op = False
                 else:
                     print("\nError. El usuario aún tiene libros rentados. Favor de solicitar los libros de regreso antes de eliminar")
