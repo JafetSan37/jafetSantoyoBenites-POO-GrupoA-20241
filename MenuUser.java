@@ -66,10 +66,10 @@ public class MenuUser {
     }
     public void askBook(){
         boolean ab = true, bt = true;
-        int x,y,j,r;
+        int x,y,j,r,counter;
         do{
             j = 1;
-            System.out.println("\t\nSelecciona el libro deseado:\n");
+            System.out.println("\t\nSelecciona el libro deseado:");
             for (Books books : library.getBooksList()){
                 if(!books.isRented()){
                     System.out.printf("\n%d) Nombre: %s\n   Autor: %s\n",j,books.getTitle(),books.getAuthor());
@@ -89,13 +89,13 @@ public class MenuUser {
             book.setRented(true);
             bt = true;
             x = 1;
-            System.out.println("\nSelecciona tu usuario:\n");
+            System.out.println("\nSelecciona tu usuario:");
             for(Users user:library.getUsersList()){
                 System.out.printf("\n%d) Nombre: %s %s",x,user.getName(),user.getLastName());
                 x+=1;
             }
             do{
-                System.out.print("\nRespuesta: ");
+                System.out.print("\n\nRespuesta: ");
                 r = reader.sc.nextInt();
                 reader.sc.nextLine();
                 r -= 1;
