@@ -9,14 +9,19 @@ class MenuUser:
         while flag:
             print("\nSelecciona la opción deseada:\n1) Consultar libros\n2) Solicitar un libro\n3) Devolver un libro\n4) Comprar libro\n5) Salir")
             x = int(input("\nOpción: "))
-            switch = {
-                1: self.consult_book,
-                2: self.ask_book,
-                3: self.ret_book,
-                4: self.buy_book,
-                5: lambda: print("\nRegresando al menú principal...\n") or setattr(flag, False)
-            }
-            switch.get(x, lambda: print("Error. Selecciona una opción válida."))()
+            if x == 1:
+                self.consult_book()
+            elif x == 2:
+                self.ask_book()
+            elif x == 3:
+                self.ret_book()
+            elif x == 4:
+                self.buy_book()
+            elif x == 5:
+                print("\nRegresando al menú principal...")
+                flag = False
+            else:
+                print("Error. Selecciona una opción válida")
 
     def consult_book(self):
         pt = True
@@ -25,15 +30,18 @@ class MenuUser:
             a = int(input("\nOpción: "))
             if a == 1:
                 b = 0
-                for book in self.library.get_books_list():
-                    if not book.is_rented():
+                counter = 0
+                for book in self.library.get_books():
+                    if book.is_rented() == False:
                         print(f"\nTítulo: {book.get_title()}\nAutor: {book.get_author()}\n")
                         print("**************")
                     elif b == 0:
-                        print("\nNo hay libros disponibles.")
+                        counter += 1
+                        if counter == len(self.library.get_books()):
+                            print("\nNo hay libros disponibles.")
             elif a == 2:
                 b = 0
-                for book in self.library.get_books_sell():
+                for book in self.library.get_sell_books():
                     if book.is_available():
                         print(f"\nTítulo: {book.get_title()}\nAutor: {book.get_author()}\nPrecio: {book.get_price()}\n")
                         print("**************")
@@ -50,23 +58,28 @@ class MenuUser:
         while ab:
             j = 1
             print("\t\nSelecciona el libro deseado:\n")
-            for book in self.library.get_books_list():
-                if not book.is_rented():
+            counter = 0
+            for book in self.library.get_books():
+                if book.is_rented() == False:
                     print(f"\n{j}) Nombre: {book.get_title()}\n   Autor: {book.get_author()}")
                     j += 1
+                else:
+                    counter += 1
+                    if counter == len(self.library.get_books()):
+                        print("\nNo hay libros disponibles, todos han sido rentados. Regresa más tarde.")
             y = int(input("\nRespuesta: ")) - 1
-            book = self.library.get_books_list()[y]
+            book = self.library.get_books()[y]
             book.set_rented(True)
             x = 1
             print("\nSelecciona tu usuario:\n")
-            for user in self.library.get_users_list():
-                print(f"\n{x}) Nombre: {user.get_name()} {user.get_last_name()}")
+            for user in self.library.get_users():
+                print(f"{x}) Nombre: {user.get_name()} {user.get_lastName()}")
                 x += 1
             r = int(input("\nRespuesta: ")) - 1
-            user = self.library.get_users_list()[r]
-            print("\nAgregando libro...\n")
+            user = self.library.get_users()[r]
+            print("\nAgregando libro...")
             user.add_book_user(book)
-            print("\nLibro agregado!\n")
+            print("\nLibro agregado!")
             ab = False
 
     def ret_book(self):
@@ -74,26 +87,26 @@ class MenuUser:
         while op:
             x = 1
             print("\nSelecciona tu usuario:\n")
-            for user in self.library.get_users_list():
-                print(f"\n{x}) Nombre: {user.get_name()} {user.get_last_name()}")
+            for user in self.library.get_users():
+                print(f"{x}) Nombre: {user.get_name()} {user.get_lastName()}")
                 x += 1
             r = int(input("\nRespuesta: ")) - 1
-            user = self.library.get_users_list()[r]
-            if user.get_rented_books():
+            user = self.library.get_users()[r]
+            if user.get_rentedBooks():
                 k = 1
                 print("\nSelecciona el libro a devolver:")
-                for book in user.get_rented_books():
+                for book in user.get_rentedBooks():
                     print(f"\n{k}) Título: {book.get_title()} Autor: {book.get_author()}\n")
                     k += 1
                 b = int(input("\nRespuesta: ")) - 1
-                book_ret = user.get_rented_books()[b]
-                id_book = book_ret.get_id()
-                for books in self.library.get_books_list():
-                    if books.get_id() == id_book:
-                        index = self.library.get_books_list().index(books)
-                        book_dev = self.library.get_books_list()[index]
+                book_ret = user.get_rentedBooks()[b]
+                id_book = book_ret.get_ID()
+                user.get_rentedBooks().remove(b)
+                for books in self.library.get_books():
+                    if books.get_ID() == id_book:
+                        index = self.library.get_books().index(books)
+                        book_dev = self.library.get_books()[index]
                         book_dev.set_rented(False)
-                user.get_rented_books().remove(b)
                 print("\nLibro devuelto!\n")
                 op = False
             else:
