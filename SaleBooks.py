@@ -1,5 +1,3 @@
-import random
-
 class SaleBooks:
     def __init__(self, ID, title, author, year, price, inventory):
         self.ID = ID
@@ -10,11 +8,8 @@ class SaleBooks:
         self.inventory = inventory
         self.available = True
 
-    def get_ID(self):
+    def get_id(self):
         return self.ID
-
-    def set_ID(self, ID):
-        self.ID = random.randint(10000000, 99999999)
 
     def get_title(self):
         return self.title

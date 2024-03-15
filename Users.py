@@ -9,53 +9,47 @@ class Users:
         self.rentedBooks = []
         self.soldBooks = []
 
-    def getIDuser(self):
+    def get_IDuser(self):
         return self.IDuser
 
-    def getName(self):
+    def get_name(self):
         return self.name
 
-    def setName(self, name):
+    def set_name(self, name):
         self.name = name
 
-    def getLastName(self):
+    def get_lastName(self):
         return self.lastName
 
-    def setLastName(self, lastName):
+    def set_lastName(self, lastName):
         self.lastName = lastName
 
-    def getAge(self):
+    def get_age(self):
         return self.age
 
-    def setAge(self, age):
+    def set_age(self, age):
         self.age = age
 
-    def getCellNumber(self):
+    def get_cellNumber(self):
         return self.cellNumber
 
-    def setCellNumber(self, cellNumber):
+    def set_cellNumber(self, cellNumber):
         self.cellNumber = cellNumber
 
-    def getAddress(self):
+    def get_address(self):
         return self.address
 
-    def setAddress(self, address):
+    def set_address(self, address):
         self.address = address
 
-    def getRentedBooks(self):
+    def get_rentedBooks(self):
         return self.rentedBooks
 
-    def setRentedBooks(self, rentedBooks):
-        self.rentedBooks = rentedBooks
-
-    def addBookUser(self, book):
+    def add_book_user(self, book):
         self.rentedBooks.append(book)
 
-    def getSoldBooks(self):
+    def get_soldBooks(self):
         return self.soldBooks
 
-    def setSoldBooks(self, soldBooks):
-        self.soldBooks = soldBooks
-
-    def addSoldBookUser(self, book):
+    def add_sold_book_user(self, book):
         self.soldBooks.append(book)

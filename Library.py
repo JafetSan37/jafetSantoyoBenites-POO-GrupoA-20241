@@ -1,28 +1,28 @@
 class Library:
-    books_list = []
-    users_list = []
-    books_sell = []
-    
-    @staticmethod
-    def get_books_list():
-        return Library.books_list
-    
-    @staticmethod
-    def get_users_list():
-        return Library.users_list
-    
-    @staticmethod
-    def get_books_sell():
-        return Library.books_sell
-    
-    @staticmethod
-    def add_book(book):
-        Library.books_list.append(book)
-    
-    @staticmethod
-    def add_user(user):
-        Library.users_list.append(user)
-    
-    @staticmethod
-    def add_sell_book(sell_book):
-        Library.books_sell.append(sell_book)
+    booksList = []
+    usersList = []
+    booksSell = []
+
+    @classmethod
+    def get_books(cls):
+        return cls.booksList
+
+    @classmethod
+    def get_users(cls):
+        return cls.usersList
+
+    @classmethod
+    def get_sell_books(cls):
+        return cls.booksSell
+
+    @classmethod
+    def add_book(cls, book):
+        cls.booksList.append(book)
+
+    @classmethod
+    def add_user(cls, user):
+        cls.usersList.append(user)
+
+    @classmethod
+    def add_sell_book(cls, sell_book):
+        cls.booksSell.append(sell_book)

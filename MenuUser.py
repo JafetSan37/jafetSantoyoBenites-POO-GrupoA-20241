@@ -1,188 +1,126 @@
-import Library
+from Library import Library
 class MenuUser:
+    def __init__(self):
+        self.library = Library()
+        #self.reader = Reader()
 
-    def userMenu():
+    def user_menu(self):
         flag = True
-        x = 0
         while flag:
             print("\nSelecciona la opción deseada:\n1) Consultar libros\n2) Solicitar un libro\n3) Devolver un libro\n4) Comprar libro\n5) Salir")
             x = int(input("\nOpción: "))
-            switcher = {
-                1: MenuUser.consultBook,
-                2: MenuUser.askBook,
-                3: MenuUser.retBook,
-                4: MenuUser.buyBook,
-                5: lambda: print("\nRegresando al menú principal..."),
+            switch = {
+                1: self.consult_book,
+                2: self.ask_book,
+                3: self.ret_book,
+                4: self.buy_book,
+                5: lambda: print("\nRegresando al menú principal...\n") or setattr(flag, False)
             }
-            switcher.get(x, lambda: print("Error. Selecciona una opción válida"))()
-            if x == 5:
-                flag = False
+            switch.get(x, lambda: print("Error. Selecciona una opción válida."))()
 
-    def consultBook():
+    def consult_book(self):
         pt = True
-        a = 0
-        b = 0
         while pt:
             print("\nSelecciona una opción:\n1) Libros en renta\n2) Libros en venta\n3) Salir")
             a = int(input("\nOpción: "))
-            switcher = {
-                1: lambda: MenuUser.printAvailableBooks(Library.getBooksList(), True),
-                2: lambda: MenuUser.printAvailableBooks(Library.getBooksSell(), False),
-                3: lambda: print("\nRegresando al menú anterior..."),
-            }
-            switcher.get(a, lambda: print("Error. Selecciona una opción válida"))()
-            if a == 3:
+            if a == 1:
+                b = 0
+                for book in self.library.get_books_list():
+                    if not book.is_rented():
+                        print(f"\nTítulo: {book.get_title()}\nAutor: {book.get_author()}\n")
+                        print("**************")
+                    elif b == 0:
+                        print("\nNo hay libros disponibles.")
+            elif a == 2:
+                b = 0
+                for book in self.library.get_books_sell():
+                    if book.is_available():
+                        print(f"\nTítulo: {book.get_title()}\nAutor: {book.get_author()}\nPrecio: {book.get_price()}\n")
+                        print("**************")
+                    elif b == 0:
+                        print("\nNo hay libros disponibles.")
+            elif a == 3:
+                print("\nRegresando al menú anterior...\n")
                 pt = False
+            else:
+                print("Error. Selecciona una opción válida")
 
-    def printAvailableBooks(booksList, isRented):
-        b = 0
-        for book in booksList:
-            if (isRented and book.isRented()) or (not isRented and book.isAvailable()):
-                b += 1
-                if not book.isRented():
-                    print(f"\nTítulo: {book.getTitle()}\nAutor: {book.getAuthor()}\nAño de Publicación: {book.getYear()}")
-                    print("**************")
-        if b == 0:
-            print("\nNo hay libros disponibles.")
-
-    def askBook():
+    def ask_book(self):
         ab = True
-        bt = True
-        x = 0
-        y = 0
-        j = 0
-        r = 0
         while ab:
             j = 1
             print("\t\nSelecciona el libro deseado:\n")
-            for i, book in enumerate(Library.getBooksList()):
-                if not book.isRented():
-                    print(f"\n{i+1}) Nombre: {book.getTitle()}\n   Autor: {book.getAuthor()}")
+            for book in self.library.get_books_list():
+                if not book.is_rented():
+                    print(f"\n{j}) Nombre: {book.get_title()}\n   Autor: {book.get_author()}")
                     j += 1
-            while bt:
-                y = 0
-                y = int(input("\nRespuesta: "))
-                y -= 1
-                if y > len(Library.getBooksList()):
-                    print("Error. Ingresa una opción válida.")
-                else:
-                    bt = False
-            book = Library.getBooksList()[y]
-            book.setRented(True)
-            bt = True
+            y = int(input("\nRespuesta: ")) - 1
+            book = self.library.get_books_list()[y]
+            book.set_rented(True)
             x = 1
             print("\nSelecciona tu usuario:\n")
-            for i, user in enumerate(Library.getUsersList()):
-                print(f"\n{i+1}) Nombre: {user.getName()} {user.getLastName()}")
+            for user in self.library.get_users_list():
+                print(f"\n{x}) Nombre: {user.get_name()} {user.get_last_name()}")
                 x += 1
-            while bt:
-                r = int(input("\nRespuesta: "))
-                r -= 1
-                if r > len(Library.getUsersList()):
-                    print("Error. Selecciona una opción válida.")
-                else:
-                    bt = False
-            user = Library.getUsersList()[r]
-            print("\nAgregando libro...")
-            user.addBookUser(book)
-            print("\nLibro agregado!")
+            r = int(input("\nRespuesta: ")) - 1
+            user = self.library.get_users_list()[r]
+            print("\nAgregando libro...\n")
+            user.add_book_user(book)
+            print("\nLibro agregado!\n")
             ab = False
 
-    def retBook():
+    def ret_book(self):
         op = True
-        bt = True
-        r = 0
-        x = 0
-        k = 0
-        b = 0
-        idBook = 0
-        index = 0
-        i = 0
         while op:
             x = 1
             print("\nSelecciona tu usuario:\n")
-            for i, user in enumerate(Library.getUsersList()):
-                print(f"\n{i+1}) Nombre: {user.getName()} {user.getLastName()}")
+            for user in self.library.get_users_list():
+                print(f"\n{x}) Nombre: {user.get_name()} {user.get_last_name()}")
                 x += 1
-            while bt:
-                r = int(input("\nRespuesta: "))
-                r -= 1
-                if r > len(Library.getUsersList()):
-                    print("Error. Selecciona una opción válida.")
-                else:
-                    bt = False
-            user = Library.getUsersList()[r]
-            if user.getRentedBooks().isEmpty():
-                print("Error. El usuario seleccionado no tiene ningún libro rentado.")
-            else:
+            r = int(input("\nRespuesta: ")) - 1
+            user = self.library.get_users_list()[r]
+            if user.get_rented_books():
                 k = 1
                 print("\nSelecciona el libro a devolver:")
-                for i, book in enumerate(user.getRentedBooks()):
-                    print(f"\n{i+1}) Título: {book.getTitle()} Autor: {book.getAuthor()}")
+                for book in user.get_rented_books():
+                    print(f"\n{k}) Título: {book.get_title()} Autor: {book.get_author()}\n")
                     k += 1
-                bt = True
-                while bt:
-                    b = int(input("\nRespuesta: "))
-                    b -= 1
-                    if b > len(user.getRentedBooks()):
-                        print("Error. Selecciona una opción válida.")
-                    else:
-                        bt = False
-                print("\nDevolviendo libro...")
-                bookRet = user.getRentedBooks()[b]
-                idBook = bookRet.getID()
-                for books in Library.getBooksList():
-                    if books.getID() == idBook:
-                        index = Library.getBooksList().index(books)
-                        bookDev = Library.getBooksList()[index]
-                        bookDev.setRented(False)
-                user.getRentedBooks().remove(b)
+                b = int(input("\nRespuesta: ")) - 1
+                book_ret = user.get_rented_books()[b]
+                id_book = book_ret.get_id()
+                for books in self.library.get_books_list():
+                    if books.get_id() == id_book:
+                        index = self.library.get_books_list().index(books)
+                        book_dev = self.library.get_books_list()[index]
+                        book_dev.set_rented(False)
+                user.get_rented_books().remove(b)
                 print("\nLibro devuelto!\n")
                 op = False
+            else:
+                print("Error. El usuario seleccionado no tiene ningún libro rentado.")
 
-    def buyBook():
+    def buy_book(self):
         pt = True
-        o = 0
-        p = 0
-        x = 0
-        y = 0
-        inventory = 0
         p = 1
         print("\t\nSelecciona el libro deseado:")
-        for i, book in enumerate(Library.getBooksSell()):
-            if book.getInventory() > 0:
-                print(f"\n{i+1}) Nombre: {book.getTitle()}\n   Autor: {book.getAuthor()}\n   Precio: {book.getPrice()}")
+        for books in self.library.get_books_sell():
+            if books.get_inventory() > 0:
+                print(f"\n{p}) Nombre: {books.get_title()}\n   Autor: {books.get_author()}\n   Precio: {books.get_price()}\n")
                 p += 1
-        while pt:
-            y = 0
-            y = int(input("\nRespuesta: "))
-            y -= 1
-            if y > len(Library.getBooksList()):
-                print("Error. Ingresa una opción válida.")
-            else:
-                pt = False
-        print("\nObteniendo libro...")
-        book = Library.getBooksSell()[y]
-        inventory = book.getInventory()
-        inventory -= 1
-        book.setInventory(inventory)
-        if book.getInventory() == 0:
-            book.setAvailable(False)
+        y = int(input("\nRespuesta: ")) - 1
+        book = self.library.get_books_sell()[y]
+        inventory = book.get_inventory() - 1
+        book.set_inventory(inventory)
+        if book.get_inventory() == 0:
+            book.set_available(False)
         x = 1
         print("\nSelecciona tu usuario:")
-        for i, user in enumerate(Library.getUsersList()):
-            print(f"\n{i+1}) Nombre: {user.getName()} {user.getLastName()}")
+        for user in self.library.get_users_list():
+            print(f"\n{x}) Nombre: {user.get_name()} {user.get_last_name()}")
             x += 1
-        pt = True
-        while pt:
-            o = int(input("\nRespuesta: "))
-            o -= 1
-            if o > len(Library.getUsersList()):
-                print("Error. Selecciona una opción válida.")
-            else:
-                pt = False
-        user = Library.getUsersList()[o]
-        print("\nComprando libro...")
-        user.addSoldBookUser(book)
-        print("\nLibro comprado y agregado a tu lista!")
+        o = int(input("\nRespuesta: ")) - 1
+        user = self.library.get_users_list()[o]
+        print("\nComprando libro...\n")
+        user.add_sold_book_user(book)
+        print("\nLibro comprado y agregado a tu lista!\n")
         print("\nGracias por tu preferencia!\n")
