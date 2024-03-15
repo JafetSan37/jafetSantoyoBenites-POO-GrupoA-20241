@@ -20,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="tarea7/unidad2/java" />
+        <entry key="$PROJECT_DIR$" value="tarea8/unidad2/python" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,7 +45,7 @@
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;tarea8/unidad2/python&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tarea8/unidad2/java&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/DELL-UserFIND/OneDrive/Escritorio/Tecnológico de Morelia/Ing en Sistemas Computacionales/2do Semestre/POO/jafetSantoyoBenites-POO-GrupoA-20241&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -108,7 +108,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
+        <option value="jdk-21.0.2-temurin-21.0.2-4caba194b151-7da56cdf" />
       </set>
     </attachedChunks>
   </component>
@@ -148,6 +148,7 @@
       <workItem from="1710430196846" duration="214000" />
       <workItem from="1710430442774" duration="362000" />
       <workItem from="1710430981400" duration="563000" />
+      <workItem from="1710431650464" duration="7314000" />
     </task>
     <servers />
   </component>
