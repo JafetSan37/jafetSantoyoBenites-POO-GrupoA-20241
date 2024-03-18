@@ -67,47 +67,49 @@ public class MenuUser {
     public void askBook(){
         boolean ab = true, bt = true;
         int x,y,j,r,counter;
+        j = 1;
+        System.out.println("\t\nSelecciona el libro deseado:");
+        for (Books books : library.getBooksList()){
+            if(!books.isRented()){
+                System.out.printf("\n%d) Nombre: %s\n   Autor: %s\n",j,books.getTitle(),books.getAuthor());
+                j++;
+            }
+        }
+        do {
+            y = 0;
+            System.out.print("\nRespuesta: ");
+            y = reader.sc.nextInt();
+            reader.sc.nextLine();
+            y -= 1;
+            if (y > library.getBooksList().size()) System.out.println("Error. Ingresa una opción válida.");
+            else bt = false;
+        } while (bt);
+        
+        Books book = library.getBooksList().get(y);
+        book.setRented(true);
+        bt = true;
+        x = 1;
+        System.out.println("\nSelecciona tu usuario:");
+        for(Users user:library.getUsersList()){
+            System.out.printf("\n%d) Nombre: %s %s",x,user.getName(),user.getLastName());
+            x+=1;
+        }
         do{
-            j = 1;
-            System.out.println("\t\nSelecciona el libro deseado:");
-            for (Books books : library.getBooksList()){
-                if(!books.isRented()){
-                    System.out.printf("\n%d) Nombre: %s\n   Autor: %s\n",j,books.getTitle(),books.getAuthor());
-                    j++;
-                }
-            }
-            do {
-                y = 0;
-                System.out.print("\nRespuesta: ");
-                y = reader.sc.nextInt();
-                reader.sc.nextLine();
-                y -= 1;
-                if (y > library.getBooksList().size()) System.out.println("Error. Ingresa una opción válida.");
-                else bt = false;
-            } while (bt);
-            Books book = library.getBooksList().get(y);
-            book.setRented(true);
-            bt = true;
-            x = 1;
-            System.out.println("\nSelecciona tu usuario:");
-            for(Users user:library.getUsersList()){
-                System.out.printf("\n%d) Nombre: %s %s",x,user.getName(),user.getLastName());
-                x+=1;
-            }
-            do{
-                System.out.print("\n\nRespuesta: ");
-                r = reader.sc.nextInt();
-                reader.sc.nextLine();
-                r -= 1;
-                if(r>library.getUsersList().size()) System.out.println("Error. Selecciona una opción válida.");
-                else bt = false;
-            }while (bt);
-            Users user = library.getUsersList().get(r);
-            System.out.println("\nAgregando libro...");
-            user.addBookUser(book);
-            System.out.println("\nLibro agregado!");
-            ab = false;
-        }while (ab);
+            System.out.print("\n\nRespuesta: ");
+            r = reader.sc.nextInt();
+            reader.sc.nextLine();
+            r -= 1;
+            if(r>library.getUsersList().size()) System.out.println("Error. Selecciona una opción válida.");
+            else bt = false;
+        }while (bt);
+        Users user = library.getUsersList().get(r);
+        System.out.println("\nAgregando libro...");
+        user.addBookUser(book);
+        System.out.println("\nLibro agregado!");
+//        do{
+//
+//            ab = false;
+//        }while (ab);
     }
     public void retBook(){
         boolean op = true, bt = true;
