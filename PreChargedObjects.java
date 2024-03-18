@@ -1,4 +1,4 @@
-public class Seeder {
+public class PreChargedObjects {
 
         public static void agregarElementos() {
                 Employee employee1 = new Employee("Jafet", "Santoyo");

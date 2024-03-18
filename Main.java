@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args){
         //Objetos previamente creados en la clase Seeder para prueba del programa.
-        Seeder.agregarElementos();
+        PreChargedObjects.agregarElementos();
         //En main solamente se llaman a los métodos de las clases correspondientes.
         System.out.println("\t\nHola! Bienvenido/a!");
         boolean flag = true;
