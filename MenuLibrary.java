@@ -131,7 +131,7 @@ public class MenuLibrary {
     }
     public void menuBooks(){
         boolean pt = true, op = true, st = true;
-        int opc,b,j,k,y,r,a,year,inventory;
+        int opc,counter,j,k,y,r,a,year,inventory;
         double price;
         String title,author;
         do{
@@ -153,28 +153,24 @@ public class MenuLibrary {
                     }
                 }
                 case 3 ->{
-                    b=0;//Ciclo para contar los libros disponibles.
-                    for(Books books:library.getBooksList()){
-                        if(books.isRented()) b+=1;
-                    }
+                    counter=0;
                     for(Books book:library.getBooksList()){
                         if(!book.isRented()){
                             System.out.printf("\nID: %s\nTítulo: %s\nAutor: %s\nAño de Publicación: %d\n",book.getID(),book.getTitle(),book.getAuthor(),book.getYear());
                             System.out.println("**************");
-                        }else if(b==0) System.out.println("\nNo hay libros disponibles.");
+                        }else counter+=1;
                     }
+                    if (counter==library.getBooksList().size()) System.out.println("\nNo hay libros disponibles.");
                 }
                 case 4 ->{
-                    b = 0;//Ciclo para contar libros disponibles.
-                    for(SaleBooks books:library.getBooksSell()){
-                        if(books.isAvailable()) b+=1;
-                    }
+                    counter = 0;
                     for(SaleBooks book:library.getBooksSell()){
                         if(book.isAvailable()){
                             System.out.printf("\nID: %s\nTítulo: %s\nAutor: %s\nAño de Publicación: %d\nPrecio: %.2f\nInventario: %d\n",book.getID(),book.getTitle(),book.getAuthor(),book.getYear(),book.getPrice(),book.getInventory());
                             System.out.println("**************");
-                        }else if(b==0) System.out.println("\nNo hay libros disponibles.");
+                        }else counter+=1;
                     }
+                    if (counter==library.getBooksSell().size()) System.out.println("\nNo hay libros disponibles en existencia.");
                 }
                 case 5 ->{
                     st = true;
@@ -301,7 +297,8 @@ public class MenuLibrary {
                                             reader.sc.nextLine();
                                             System.out.println("\nActualizando inventario...");
                                             book.setInventory(inventory);
-                                            if(book.getInventory()==0)book.setAvailable(false);
+                                            if(book.getInventory()==0) book.setAvailable(false);
+                                            else if (book.getInventory()>0) book.setAvailable(true);
                                             System.out.println("\nInventario actualizado!");
                                         }
                                         case 6 ->{
@@ -324,6 +321,7 @@ public class MenuLibrary {
                     st = true;
                     do{
                         System.out.println("\n1) Libros para Renta\n2) Libros para Venta\n3) Salir");
+                        System.out.print("\nOpción: ");
                         a = reader.sc.nextInt();
                         reader.sc.nextLine();
                         switch (a){
