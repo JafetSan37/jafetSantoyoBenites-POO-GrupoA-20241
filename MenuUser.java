@@ -4,7 +4,6 @@ public class MenuUser {
     Library library = new Library();
     Reader reader = new Reader();
     ArrayList<Books> availableBooks = new ArrayList<>();//ArrayList para los libros disponibles para el usuario
-    ArrayList<Integer> idAvailableBooks = new ArrayList<>();//ArrayList para almacenar los ID de los libros disponibles
 
     public void userMenu(){//Método menú para la sección Usuario.
         boolean flag = true;
